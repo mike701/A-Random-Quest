@@ -78,7 +78,7 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 > Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
 > ![flowchart of Component Architechture](https://github.com/mike701/A-Random-Quest/blob/553e6094c98fd8a9a6a20d1eff7b0a1bb09d3692/A.R.Q.%20component%20Hierarchy.png)
 
-> [Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
+![Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
 
 #### Component Architecture
 
