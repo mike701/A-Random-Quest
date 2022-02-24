@@ -31,7 +31,6 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 - Questors/Users C.R.U.D.
 - Quests/posts C.R.U.D.
 - Comments/answers C.R.U.D.
--
 
 <br>
 
@@ -123,7 +122,7 @@ src
 
 > Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
-![flowchart of Component Architechture](https://github.com/mike701/A-Random-Quest/blob/553e6094c98fd8a9a6a20d1eff7b0a1bb09d3692/A.R.Q.%20component%20Hierarchy.png)
+![ERD](https://github.com/mike701/A-Random-Quest/blob/1c10ea407a3e1a253bb15cb9e8098836f0d9ba45/assets/ERD.drawio.png)
 <br>
 
 ---
