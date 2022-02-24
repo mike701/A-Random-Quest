@@ -65,7 +65,7 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 
 - Desktop Landing
 
-![Tablet](Desktop A.R.Q. (5).png)
+![Tablet](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(5).png>)
 
 - Tablet Resource Index
 
