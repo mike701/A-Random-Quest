@@ -77,6 +77,7 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 
 > Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
 > ![flowchart of Component Architechture](https://github.com/mike701/A-Random-Quest/blob/553e6094c98fd8a9a6a20d1eff7b0a1bb09d3692/A.R.Q.%20component%20Hierarchy.png)
+
 > [Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
 
 #### Component Architecture
@@ -103,16 +104,17 @@ src
 
 | Task                        | Priority | Estimated Time | Time Invested | Actual Time |
 | --------------------------- | :------: | :------------: | :-----------: | :---------: |
-| BackEnd-(USER,POST,COMMENT) |    H     |     3 hrs      |      hrs      |     TBD     |
-| Create CRUD Front-END       |    H     |     3 hrs      |      hrs      |     TBD     |
+| BackEnd-(USER,POST,COMMENT) |    H     |     3 hrs      |      hrs      |     hrs     |
+| Create CRUD Front-END       |    H     |     3 hrs      |      hrs      |     hrs     |
 | Screens                     |    L     |     3 hrs      |      hrs      |     hrs     |
 | Component Hierarchy         |    M     |     2 hrs      |      hrs      |     hrs     |
 | USER Components             |    H     |     4 hrs      |      hrs      |     hrs     |
 | Post Components             |    H     |     4 hrs      |      hrs      |     hrs     |
 | Comments Components         |    H     |     4 hrs      |      hrs      |     hrs     |
-
-| Add Contact Form | L | 3 hrs | hrs | TBD |
-| TOTAL | | hrs | hrs | TBD |
+| Add Contact Form            |    L     |     3 hrs      |      hrs      |     TBD     |
+| Styling                     |    L     |     3 hrs      |      hrs      |     TBD     |
+|                             |    L     |     3 hrs      |      hrs      |     TBD     |
+| TOTAL                       |          |     29 hrs     |      hrs      |     TBD     |
 
 <br>
 
@@ -122,21 +124,17 @@ src
 
 > Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
-[ERD Sample](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
+![Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
 <br>
 
 ---
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+3d Questing world like metaverse
 
 ---
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
-
 ## Code Issues & Resolutions
-
-> Use this section to list of all major issues encountered and their resolution.
