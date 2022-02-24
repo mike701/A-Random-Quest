@@ -104,12 +104,12 @@ src
 | Create CRUD Front-END       |    H     |     3 hrs      |      hrs      |     hrs     |
 | Screens                     |    L     |     3 hrs      |      hrs      |     hrs     |
 | Component Hierarchy         |    M     |     2 hrs      |      hrs      |     hrs     |
+| Layout                      |    L     |     2 hrs      |      hrs      |     TBD     |
 | USER Components             |    H     |     4 hrs      |      hrs      |     hrs     |
 | Post Components             |    H     |     4 hrs      |      hrs      |     hrs     |
 | Comments Components         |    H     |     4 hrs      |      hrs      |     hrs     |
-| Add Contact Form            |    L     |     3 hrs      |      hrs      |     TBD     |
 | Styling                     |    L     |     3 hrs      |      hrs      |     TBD     |
-| Layout                      |    L     |     2 hrs      |      hrs      |     TBD     |
+| Add Contact Form            |    L     |     3 hrs      |      hrs      |     TBD     |
 | Favorites                   |    M     |     5 hrs      |      hrs      |     TBD     |
 | Debugging(prop-drilling)    |    M     |     3 hrs      |      hrs      |     TBD     |
 | TOTAL                       |          |     39 hrs     |      hrs      |     TBD     |
@@ -120,8 +120,6 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
-
 ![ERD](https://github.com/mike701/A-Random-Quest/blob/1c10ea407a3e1a253bb15cb9e8098836f0d9ba45/assets/ERD.drawio.png)
 <br>
 
@@ -130,6 +128,7 @@ src
 ## Post-MVP
 
 - 3d Questing world like metaverse
+- Guest Functionality
 
 ---
 
