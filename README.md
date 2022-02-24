@@ -70,10 +70,10 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 
 ![Mobile](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(4).png>)
 
-![Quest Details]()
-![Quests]()
-![Quest Details]()
-![User Info]()
+![Quest Details](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(6).png>)
+![Quests addition](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(8).png>)
+![User Info](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(9).png>)
+![Log-In](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(7).png>)
 
 - Mobile Resource Index
 
