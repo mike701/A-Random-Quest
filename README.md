@@ -25,9 +25,13 @@ _**A-Random-Quest** is a questing forum where a user can post a question for oth
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
 _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer quests, have a guest functionality for non-authorized users. To allow this there has to be User Auth and Questors/Users, Quests/posts, comments/answers._
+
+- User Auth
+- Questors/Users C.R.U.D.
+- Quests/posts C.R.U.D.
+- Comments/answers C.R.U.D.
+-
 
 <br>
 
@@ -43,8 +47,6 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |   Library    | Description                                                            |
 | :----------: | :--------------------------------------------------------------------- |
 |    React     | _Front-end framework with JavaScriptX backbone._                       |
@@ -58,8 +60,6 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 ### Client (Front End)
 
 #### Wireframes
-
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
 ![DeskTop](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(3).png>)
 
@@ -75,14 +75,11 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
 > ![flowchart of Component Architechture](https://github.com/mike701/A-Random-Quest/blob/553e6094c98fd8a9a6a20d1eff7b0a1bb09d3692/A.R.Q.%20component%20Hierarchy.png)
 
 ![Server Component Tree](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
 
 #### Component Architecture
-
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like.
 
 ```structure
 
@@ -133,7 +130,7 @@ src
 
 ## Post-MVP
 
-3d Questing world like metaverse
+- 3d Questing world like metaverse
 
 ---
 
