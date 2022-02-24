@@ -114,8 +114,9 @@ src
 | Add Contact Form            |    L     |     3 hrs      |      hrs      |     TBD     |
 | Styling                     |    L     |     3 hrs      |      hrs      |     TBD     |
 | Layout                      |    L     |     2 hrs      |      hrs      |     TBD     |
+| Favorites                   |    M     |     5 hrs      |      hrs      |     TBD     |
 | Debugging(prop-drilling)    |    M     |     3 hrs      |      hrs      |     TBD     |
-| TOTAL                       |          |     34 hrs     |      hrs      |     TBD     |
+| TOTAL                       |          |     39 hrs     |      hrs      |     TBD     |
 
 <br>
 
