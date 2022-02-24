@@ -60,22 +60,26 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 
 #### Wireframes
 
-![DeskTop](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(3).png>)
-
 - Desktop Landing
-
-![Tablet](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(5).png>)
+  ![DeskTop](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(3).png>)
 
 - Tablet Resource Index
-
-![Mobile](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(4).png>)
-
-![Quest Details](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(6).png>)
-![Quests addition](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(8).png>)
-![User Info](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(9).png>)
-![Log-In](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(7).png>)
+  ![Tablet](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(5).png>)
 
 - Mobile Resource Index
+  ![Mobile](<https://github.com/mike701/A-Random-Quest/blob/2e000d645ea379a3451a59e84845e711639caca9/Desktop%20A.R.Q.%20(4).png>)
+
+- Quest detail Screen
+  ![Quest Details](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(6).png>)
+
+- Adding Quests
+  ![Quests addition](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(8).png>)
+
+  - User Info
+    ![User Info](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(9).png>)
+
+- Log-In Screen
+  ![Log-In](<https://github.com/mike701/A-Random-Quest/blob/1edd8770326592ce74ed60ca28b909c41eaa348d/assets/Desktop%20A.R.Q.%20(7).png>)
 
 #### Component Tree
 
