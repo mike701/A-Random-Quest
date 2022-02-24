@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
-  skip_before_action :verify_authenticity_token
+  before_action :authorize_request, except: :create
   protect_from_forgery with: :null_session
 
 
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:email, :username, :password_digest)
+    params.require(:user).permit(:email, :username, :password)
   end
 
 

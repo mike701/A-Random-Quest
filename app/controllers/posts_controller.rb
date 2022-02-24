@@ -1,28 +1,28 @@
 class PostsController < ApplicationController
-  before_action :set_product, only: %i[ show update destroy ]
+  before_action :set_post, only: %i[ show update destroy ]
   before_action :authorize_request, only: [:create, :update, :destroy, :get_user_products]
 
-  # GET /products
+  # GET /posts
   def index
-    @posts = Product.all
+    @posts = Post.all
 
     render json: @posts
   end
 
-  # Get /users/:user_id/products
-  def get_user_products
+  # Get /users/:user_id/posts
+  def get_user_posts
     @user = User.find(params[:user_id])
-    render json: @user.products
+    render json: @user.posts
   end
 
-  # GET /products/1
+  # GET /posts/1
   def show
-    render json: @post, include: :reviews
+    render json: @post, include: :comments
   end
 
-  # POST /products
+  # POST /posts
   def create
-    @post = Product.new(product_params)
+    @post = Post.new(post_params)
     @post.user = @current_user
 
     if @post.save
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /products/1
   def update
-    if @post.update(product_params)
+    if @post.update(post_params)
       render json: @post
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -49,12 +49,12 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @post = Product.find(params[:id])
+    def set_post
+      @post = Post.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:post).permit(:title, :content, :category, :user_id)
+      params.require(:post).permit(:title, :content, :category, :user_id,:comment_id)
     end
 end

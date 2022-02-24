@@ -1,6 +1,7 @@
-class AuthenticationController < ApplicationController
+class AuthenticationsController < ApplicationController
   before_action :authorize_request, except: :login
-
+  protect_from_forgery with: :null_session
+  
   # POST /auth/login
   def login
     @user = User.find_by(username: login_params[:username])
