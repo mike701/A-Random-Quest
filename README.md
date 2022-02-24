@@ -108,11 +108,12 @@ src
 | USER Components             |    H     |     4 hrs      |      hrs      |     hrs     |
 | Post Components             |    H     |     4 hrs      |      hrs      |     hrs     |
 | Comments Components         |    H     |     4 hrs      |      hrs      |     hrs     |
+| Card/Footer                 |    M     |     2 hrs      |      hrs      |     hrs     |
 | Styling                     |    L     |     3 hrs      |      hrs      |     TBD     |
 | Add Contact Form            |    L     |     3 hrs      |      hrs      |     TBD     |
 | Favorites                   |    M     |     5 hrs      |      hrs      |     TBD     |
 | Debugging(prop-drilling)    |    M     |     3 hrs      |      hrs      |     TBD     |
-| TOTAL                       |          |     39 hrs     |      hrs      |     TBD     |
+| TOTAL                       |          |     41 hrs     |      hrs      |     TBD     |
 
 <br>
 
