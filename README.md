@@ -113,8 +113,9 @@ src
 | Comments Components         |    H     |     4 hrs      |      hrs      |     hrs     |
 | Add Contact Form            |    L     |     3 hrs      |      hrs      |     TBD     |
 | Styling                     |    L     |     3 hrs      |      hrs      |     TBD     |
-|                             |    L     |     3 hrs      |      hrs      |     TBD     |
-| TOTAL                       |          |     29 hrs     |      hrs      |     TBD     |
+| Layout                      |    L     |     2 hrs      |      hrs      |     TBD     |
+| Debugging(prop-drilling)    |    M     |     3 hrs      |      hrs      |     TBD     |
+| TOTAL                       |          |     34 hrs     |      hrs      |     TBD     |
 
 <br>
 
