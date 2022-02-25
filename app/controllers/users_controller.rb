@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      render json: @user.attributes.except("password_digest")
+      render json: @user.attributes.except("password_digest"),  include: :posts
     else
       render json: @user.errors, status: :unprocessable_entity
     end
