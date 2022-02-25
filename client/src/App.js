@@ -50,6 +50,7 @@ const [logging,setLogging]=useState(false);
           <Route path="/userInfo" element={<Info currentUser={currentUser}/>}/>
         </Routes>
       </Layout>
+      <footer style={{position:"absolute",bottom:"0"}}>Footer</footer>
     </div>
   );
 }
