@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show update destroy ]
-  before_action :authorize_request, only: [:create, :update, :destroy, :get_user_products]
+  before_action :authorize_request, only: [:create, :update, :destroy, :get_user_posts]
 
   # GET /posts
   def index
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def product_params
+    def post_params
       params.require(:post).permit(:title, :content, :category, :user_id,:comment_id)
     end
 end
