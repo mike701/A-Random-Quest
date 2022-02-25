@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user.attributes.except("password")
+    render json: @user.attributes.except("password"),  include: :posts
   end
 
   # POST /users
