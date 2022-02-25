@@ -9,6 +9,7 @@ import QuestsContainer from './screens/Quests/QuestsContainer';
 import { useEffect, useState } from 'react';
 import Login from './components/Forms/Login';
 import { loginUser, verifyUser } from './Services/users';
+import Info from './screens/Users/Info';
 
 const loginData = {
   username: "",
@@ -45,7 +46,8 @@ const [logging,setLogging]=useState(false);
         <Routes>
           <Route path="/" element={<Home currentUser={currentUser} ></Home>} />
           <Route path='/Quests/*' element={<QuestsContainer currentUser={currentUser} setCurrentUser={setCurrentUser}></QuestsContainer>} />
-          <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} setInput={setInput} input={input} setLogging={setLogging}></Login>}/>
+          <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} setInput={setInput} input={input} setLogging={setLogging}></Login>} />
+          <Route path="/userInfo" element={<Info currentUser={currentUser}/>}/>
         </Routes>
       </Layout>
     </div>

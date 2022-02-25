@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users
+    @posts= Post.all
+    @posts.each
+    render json: @users, include: :posts
   end
 
   # GET /users/1

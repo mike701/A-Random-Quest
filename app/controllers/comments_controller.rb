@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1
   def show
-    render json: @comment.attributes.except("password_digest")
+    render json: @comment, include: :user
   end
 
   # POST /comments
