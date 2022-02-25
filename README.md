@@ -113,8 +113,9 @@ src
 
 | Task                        | Priority | Estimated Time | Time Invested | Actual Time |
 | --------------------------- | :------: | :------------: | :-----------: | :---------: |
-| BackEnd-(USER,POST,COMMENT) |    H     |     3 hrs      |      hrs      |     hrs     |
-| Create CRUD Front-END       |    H     |     3 hrs      |      hrs      |     hrs     |
+| BackEnd-(USER,POST,COMMENT) |    H     |     3 hrs      |     5hrs      |    7hrs     |
+| BackEnd-Deploy              |    H     |     1 hrs      |     1hrs      |    1hrs     |
+| Create CRUD Front-END       |    H     |     3 hrs      |    2+ hrs     |    2+hrs    |
 | Screens                     |    L     |     3 hrs      |      hrs      |     hrs     |
 | Component Hierarchy         |    M     |     2 hrs      |      hrs      |     hrs     |
 | Layout                      |    L     |     2 hrs      |      hrs      |     TBD     |
