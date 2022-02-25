@@ -11,10 +11,11 @@ import { getAllUsers } from '../../Services/users';
 
 
 
-export default function QuestsContainer() {
-
+export default function QuestsContainer(props) {
+  const { currentUsers, setCurrentUsers } = props;
   const [quests, setQuests] = useState();
-  const [users,setUsers]=useState();
+  const [users, setUsers] = useState();
+  
   useEffect(() => {
     const fetchQuests = async() => {
       const res = await getAllPosts();
@@ -23,7 +24,7 @@ export default function QuestsContainer() {
       setUsers(user);
     }
     fetchQuests();
-  }, [])
+  }, [currentUsers])
 
   return (
     <div>

@@ -3,7 +3,6 @@ import { api } from './apiconfig.js'
 
 export const getAllComments = async (post_id) => {
   const resp = await api.get(`/posts/${post_id}/comments`)
-  console.log(resp)
   return resp.data
 }
 

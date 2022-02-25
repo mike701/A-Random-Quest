@@ -1,4 +1,6 @@
 import React from 'react'
+import { useState } from 'react'
+import { createPost } from '../../Services/posts'
 /***
  *   create_table "posts", force: :cascade do |t|
   t.bigint "user_id", null: false
@@ -18,10 +20,23 @@ export default function FormCreateQuest() {
     content: "",
     category:""
   }
+  const [posting, setPosting]=useState(modelQuest);
+
+  const handleChange = () => {
+    e.preventDefault();
+    
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await createPost(posting);
+    console.log(res);
+  }
+
 
   return (
-    <form>
-      <input name="content" value={content}></input>
+    <form onSubmit={(e)=>{handleSubmit(e)}}>
+      <input name="content" value={content} onChange={(e) => { handleChange(e) }}></input>
     </form>
   )
 }

@@ -3,19 +3,16 @@ import { useState } from 'react';
 import { useNavigate, useNavigationType } from 'react-router-dom';
 import { loginUser } from '../../Services/users';
 
-const loginData={
-  username: "",
-  password:""
-}
+
 export default function Login(props) {
-  const { setCurrentUser } = props
+  const { setCurrentUser,currentUser,input,setInput,setLogging } = props
   let navigate=useNavigate();
-  const [input,setInput]=useState(loginData)
-  const handleSubmit = async(e) => {
+ 
+  
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const logged = await loginUser(input);
-    setCurrentUser(logged);
-    navigate("/")
+    setLogging((prevlog)=>!prevlog);
+    navigate("/");
   }
 
   const handleChange = (e) => {

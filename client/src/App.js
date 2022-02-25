@@ -6,19 +6,47 @@ import Home from './screens/Home/Home';
 // import QuestCreate from './screens/Quests/QuestCreate';
 // import QuestDetails from './screens/Quests/QuestDetails';
 import QuestsContainer from './screens/Quests/QuestsContainer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Login from './components/Forms/Login';
+import { loginUser, verifyUser } from './Services/users';
+
+const loginData = {
+  username: "",
+  password:""
+}
+
 function App() {
+
 const [currentUser,setCurrentUser]=useState();
-  
+const [input, setInput] = useState(loginData)
+const [logging,setLogging]=useState(false);
+  useEffect(() => {
+    console.log(input);
+    if (input !== loginData) {
+      const logIn = async () => {
+        const logged = await loginUser(input);
+        setCurrentUser(logged);
+        console.log(logged);
+      }
+      logIn()
+    }
+  },[logging])
+
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await verifyUser()
+      setCurrentUser(user)
+    }
+    getUser()
+  }, [])
+
   return (
     <div className="App">
-      <Layout currentUser={currentUser} setCurrentUser={setCurrentUser}>
+          <Layout currentUser={currentUser} setCurrentUser={setCurrentUser}>
         <Routes>
-          <Route path="/" element={<Home currentUser={currentUser} setCurrentUser={setCurrentUser}></Home>} />
+          <Route path="/" element={<Home currentUser={currentUser} ></Home>} />
           <Route path='/Quests/*' element={<QuestsContainer currentUser={currentUser} setCurrentUser={setCurrentUser}></QuestsContainer>} />
-          {/* <Route path="/Quests/:id/comments" element={<QuestCreate></QuestCreate>} /> */}
-          <Route path="/login" element={<Login setCurrentUser={setCurrentUser}></Login>}/>
+          <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} setInput={setInput} input={input} setLogging={setLogging}></Login>}/>
         </Routes>
       </Layout>
     </div>

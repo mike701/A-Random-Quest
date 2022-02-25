@@ -25,7 +25,6 @@ export default function QuestDetails(props) {
         setComments(res);
     }
       fetchComments();
-      console.log(comments)
     }
   },[details])
 
@@ -41,8 +40,8 @@ export default function QuestDetails(props) {
           <div onClick={(e)=>{e.preventDefault();setToggleComments((prevToggle)=>!prevToggle)}}>Comments</div>
           {comments && toggleComments && comments.map((comment) => {
             return <div key={comment.id}>
-              <h3>{comment.content}</h3>
-              <p>{comment.user.username}</p>
+              <h3>comment:{comment.content}</h3>
+              <p>commentor:{comment.user.username}</p>
             </div>
           })}
           </div>
