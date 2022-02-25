@@ -3,7 +3,6 @@ import { api } from './apiconfig.js'
 
 export const getAllPosts = async () => {
   const resp = await api.get('/posts')
-  console.log(resp)
   return resp.data
 }
 
