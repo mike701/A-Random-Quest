@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comments = @post.comments
 
-    render json: @comments, include: :user
+    render json: @comments, include: :user.attributes.except("password_digest")
   end
 
   def get_all_comments
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
-    @comment.user = @current_user.except("password_digest")
+    @comment.user = @current_user
     @comment.post_id = params[:post_id]
 
     if @comment.save
