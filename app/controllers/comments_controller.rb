@@ -21,17 +21,17 @@ class CommentsController < ApplicationController
   end
 
     # Get /users/:user_id/comments
-    def get_user_comments
-      @comments = Comment.all,include: :user
-      @user = User.find(params[:user_id])
-      @user_comments=[]
-      @comment.each do |comment|
-        if(comment.user_id==:user_id)
-          @user_comments << comment
-        end
-      end
-      render json: @user_comments
-    end
+    # def get_user_comments
+    #   @comments = Comment.all,include: :user
+    #   @user = User.find(params[:user_id])
+    #   @user_comments=[]
+    #   @comment.each do |comment|
+    #     if(comment.user_id==:user_id)
+    #       @user_comments << comment
+    #     end
+    #   end
+    #   render json: @user_comments
+    # end
 
   # POST /comments
   def create
