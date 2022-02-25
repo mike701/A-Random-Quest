@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comments = @post.comments
 
-    render json: @comments, include: :user.attributes.except("password_digest")
+    render json: @comments, include: :user.except("password_digest")
   end
 
   def get_all_comments
