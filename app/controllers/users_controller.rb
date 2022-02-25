@@ -7,12 +7,12 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users
+    render json: @users.attributes.except("password_digest"),
   end
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @user.attributes.except("password_digest"),
   end
 
   # POST /users
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      render json: @user
+      render json: @user.attributes.except("password_digest")
     else
       render json: @user.errors, status: :unprocessable_entity
     end
