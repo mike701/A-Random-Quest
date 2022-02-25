@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
-    @comment.user = @current_user
+    @comment.user = @current_user.except("password_digest")
     @comment.post_id = params[:post_id]
 
     if @comment.save
