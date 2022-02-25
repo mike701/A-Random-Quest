@@ -27,10 +27,9 @@ class CommentsController < ApplicationController
       @user_comments=[]
       @comment.each do |comment|
         if(comment.user_id==:user_id)
-          @user_comments.push(comment)
+          @user_comments << comment
         end
       end
-
       render json: @user_comments
     end
 
