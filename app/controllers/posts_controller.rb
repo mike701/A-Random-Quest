@@ -43,6 +43,10 @@ class PostsController < ApplicationController
 
   # DELETE /products/1
   def destroy
+    @comments=Comment.where(post_id: @post.id)
+    @comments.each do |comment|
+      comment.destroy
+    end
     @post.destroy
     render json: @post
   end

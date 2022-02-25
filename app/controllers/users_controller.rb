@@ -42,6 +42,10 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
+    @posts= Posts.where(user_id: @user.id)
+    @posts.each do |post|
+      post.destroy
+    end
     @user.destroy
     render json: @user
   end
