@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users.attributes.except("password_digest")
+    render json: @users.each{|user| user.attributes.except("password_digest")}
   end
 
   # GET /users/1
