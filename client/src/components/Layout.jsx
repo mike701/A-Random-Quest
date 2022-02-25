@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 export default function Layout(props) {
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar {...props}></Navbar>
       {props.children}
     </>
   )
