@@ -20,6 +20,20 @@ class CommentsController < ApplicationController
     render json: @comment, include: :user
   end
 
+    # Get /users/:user_id/comments
+    def get_user_comments
+      @comments = Comment.all,include: :user
+      @user = User.find(params[:user_id])
+      @user_comments=[]
+      @comment.each do |comment|
+        if(comment.user_id==:user_id)
+          @user_comments.push(comment)
+        end
+      end
+
+      render json: @user_comments
+    end
+
   # POST /comments
   def create
     @comment = Comment.new(comment_params)

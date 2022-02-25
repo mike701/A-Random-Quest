@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    render json: @posts
+    render json: @posts, include: :comments
   end
 
   # Get /users/:user_id/posts
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /products/1
+  # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
       render json: @post
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
+  # DELETE /posts/1
   def destroy
     @comments=Comment.where(post_id: @post.id)
     @comments.each do |comment|
