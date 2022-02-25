@@ -12,9 +12,10 @@ import { getAllUsers } from '../../Services/users';
 
 
 export default function QuestsContainer(props) {
-  const { currentUsers, setCurrentUsers } = props;
+  const { currentUser} = props;
   const [quests, setQuests] = useState();
   const [users, setUsers] = useState();
+  const [added, setAdded] = useState(false);
   
   useEffect(() => {
     const fetchQuests = async() => {
@@ -24,14 +25,15 @@ export default function QuestsContainer(props) {
       setUsers(user);
     }
     fetchQuests();
-  }, [currentUsers])
+  }, [added])
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Quests quests={quests}  users={users}></Quests>} />
+        <Route path="/" element={<Quests quests={quests} setQuests={setQuests} currentUser={currentUser} users={users}></Quests>}
+        />
         <Route path="/:post_id" element={<QuestDetails quests={quests}  users={users}></QuestDetails>} />
-        <Route path="/new" element={<QuestCreate quests={quests}  users={users}></QuestCreate>} />
+        <Route path="/new" element={<QuestCreate quests={quests} users={users} currentUser={currentUser} setAdded={setAdded}></QuestCreate>} />
       </Routes>
     </div>
   )

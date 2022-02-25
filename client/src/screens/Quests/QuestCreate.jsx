@@ -1,7 +1,8 @@
 import React from 'react'
+import FormCreateQuest from '../../components/Forms/FormCreateQuest'
 
-export default function QuestCreate() {
+export default function QuestCreate(props) {
   return (
-    <div>QuestCreate</div>
+    <FormCreateQuest {...props}></FormCreateQuest>
   )
 }

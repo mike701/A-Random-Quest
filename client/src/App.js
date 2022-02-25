@@ -21,7 +21,6 @@ const [currentUser,setCurrentUser]=useState();
 const [input, setInput] = useState(loginData)
 const [logging,setLogging]=useState(false);
   useEffect(() => {
-    console.log(input);
     if (input !== loginData) {
       const logIn = async () => {
         const logged = await loginUser(input);
