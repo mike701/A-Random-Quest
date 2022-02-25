@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
-  before_action :authorize_request, except: :create
+  before_action :authorize_request, except: [:create, :show]
   protect_from_forgery with: :null_session
 
 
