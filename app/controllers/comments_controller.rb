@@ -39,7 +39,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user = @current_user
     @comment.post_id = params[:post_id]
-
     if @comment.save
       render json: @comment, status: :created
     else
