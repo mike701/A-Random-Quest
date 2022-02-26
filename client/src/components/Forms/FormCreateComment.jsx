@@ -5,7 +5,7 @@ import FormCreateUser from './FormCreateUser';
 
 export default function FormCreateComment(props) {
 //not needed
-  const {currentUser}=props
+  const { currentUser,post_id } = props
 const modelQuest = {
   user_id: props?.currentUser?.id,
   title: "",
@@ -29,9 +29,8 @@ const handleChange = (e) => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   if (window.localStorage.getItem("authToken") != null) {
-    const res = await createComment(commenting);
-    props.setAdded((prevAdd)=>!prevAdd);
-    nav("/Quests");
+    const res = await createComment(post_id,commenting);
+    window.location.reload(false);
   } else {
     alert("You need to sign in!");
     nav("/login");

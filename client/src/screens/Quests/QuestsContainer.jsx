@@ -32,7 +32,7 @@ export default function QuestsContainer(props) {
       <Routes>
         <Route path="/" element={<Quests quests={quests} setQuests={setQuests} currentUser={currentUser} users={users}></Quests>}
         />
-        <Route path="/:post_id" element={<QuestDetails quests={quests}  users={users}></QuestDetails>} />
+        <Route path="/:post_id" element={<QuestDetails quests={quests}  users={users}currentUser={currentUser}></QuestDetails>} />
         <Route path="/new" element={<QuestCreate quests={quests} users={users} currentUser={currentUser} setAdded={setAdded}></QuestCreate>} />
       </Routes>
     </div>

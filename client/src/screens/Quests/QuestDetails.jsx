@@ -6,7 +6,8 @@ import FormCreateComment from '../../components/Forms/FormCreateComment';
 import { getAllComments } from '../../Services/comments';
 
 export default function QuestDetails(props) {
-  const { quests, users,currrentUser } = props
+  const { quests, users, currentUser } = props
+  console.log(currentUser)
   const [details, setDetails] = useState();
   const [comments, setComments] = useState();
   const [toggleComments, setToggleComments]=useState(false);
@@ -43,7 +44,7 @@ export default function QuestDetails(props) {
             e.preventDefault();
             setToggleComment((prev)=>!prev)
           }}>Add Comment</button>
-          {toggleComment && <FormCreateComment currrentUser={currrentUser}></FormCreateComment>}
+          {toggleComment && <FormCreateComment currrentUser={currentUser} post_id={r.id}></FormCreateComment>}
           {comments && toggleComments && comments.map((comment) => {
             return <div key={comment.id}>
               <h3>comment:{comment.content}</h3>
