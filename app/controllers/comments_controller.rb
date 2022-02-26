@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
     # Get /users/:user_id/comments
     def get_user_comments
-      @comments = Comment.all,include: :user_id
+      @comments = Comment.all
       @user = User.find(params[:user_id])
       @user_comments=[]
       @comment.each do |comment|
