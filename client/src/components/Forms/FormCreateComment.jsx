@@ -39,9 +39,18 @@ const handleSubmit = async (e) => {
 
 return (
   <form onSubmit={(e) => { handleSubmit(e) }}>
+    <label>Title</label>
+    <br></br>
     <input name="title" value={commenting.title} onChange={(e) => { handleChange(e) }}></input>
+    <br></br>
+    <label>Content</label>
+    <br></br>
     <input name="content" value={commenting.content} onChange={(e) => { handleChange(e) }}></input>
+    <br></br>
+    <label>Category</label>
+    <br></br>
     <input name="category" value={commenting.category} onChange={(e) => { handleChange(e) }}></input>
+    <br></br>
     <button>Submit</button>
   </form>
 )

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createPost } from '../../Services/posts'
+import './Forms.css'
 
 
 export default function FormCreateQuest(props) {
@@ -38,9 +39,18 @@ export default function FormCreateQuest(props) {
 
   return (
     <form onSubmit={(e) => { handleSubmit(e) }}>
+      <label>Title</label>
+      <br></br>
       <input name="title" value={posting.title} onChange={(e) => { handleChange(e) }}></input>
+      <br></br>
+      <label>Content</label>
+      <br></br>
       <input name="content" value={posting.content} onChange={(e) => { handleChange(e) }}></input>
+      <br></br>
+      <label>Category</label>
+      <br></br>
       <input name="category" value={posting.category} onChange={(e) => { handleChange(e) }}></input>
+      <br></br>
       <button>Submit</button>
     </form>
   )

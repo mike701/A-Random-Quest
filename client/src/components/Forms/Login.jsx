@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate, useNavigationType } from 'react-router-dom';
 import { loginUser } from '../../Services/users';
+import './Forms.css'
 
 
 export default function Login(props) {
@@ -25,8 +26,15 @@ export default function Login(props) {
   }
   return (
     <form onSubmit={(e) => { handleSubmit(e); }}>
-      <input name="username"  placeholder="username" onChange={(e) => { handleChange(e); }}/>
-      <input name="password"  placeholder="password" onChange={(e) => { handleChange(e); }} />
+      <br></br>
+      <label>Username</label>
+      <br></br>
+      <input name="username" placeholder="username" onChange={(e) => { handleChange(e); }} />
+      <br></br>
+      <label>Password</label>
+      <br></br>
+      <input name="password" placeholder="password" onChange={(e) => { handleChange(e); }} />
+      <br></br>
       <button>Submit</button>
     </form>
   )
