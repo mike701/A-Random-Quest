@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import Login from './components/Forms/Login';
 import { loginUser, verifyUser } from './Services/users';
 import Info from './screens/Users/Info';
+import Signup from './screens/Users/Signup';
 
 const loginData = {
   username: "",
@@ -34,8 +35,8 @@ const [logging,setLogging]=useState(false);
 
   useEffect(() => {
     const getUser = async () => {
-      const user = await verifyUser()
-      setCurrentUser(user)
+      const user = await verifyUser();
+      if (user!==false) setCurrentUser(user)
     }
     getUser()
   }, [])
@@ -47,7 +48,8 @@ const [logging,setLogging]=useState(false);
           <Route path="/" element={<Home currentUser={currentUser} ></Home>} />
           <Route path='/Quests/*' element={<QuestsContainer currentUser={currentUser} setCurrentUser={setCurrentUser}></QuestsContainer>} />
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} setInput={setInput} input={input} setLogging={setLogging}></Login>} />
-          <Route path="/userInfo" element={<Info currentUser={currentUser}/>}/>
+          <Route path="/userInfo" element={<Info currentUser={currentUser} />} />
+          <Route path="/signup" element={<Signup currentUser={currentUser}></Signup>}/>
         </Routes>
       </Layout>
       <footer style={{position:"absolute",bottom:"0", height:"10vh",width:"100vw", backgroundColor:"black", color:"white"}}>Footer</footer>

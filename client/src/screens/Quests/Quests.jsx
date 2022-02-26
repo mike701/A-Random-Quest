@@ -25,8 +25,8 @@ export default function Quests(props) {
           <h2>Category:{r.category}</h2>
           <p>Content:{r.content}</p>
           {users && <h2>UserName:{users?.filter((user) => Number(user.id) === Number(r.user_id)).map(u => u.username)}</h2>}
-          <Link to={`/Quests/${r.id}`}>Details</Link>
-          {Number(currentUser.id)===Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}
+          {r && r.id && <Link to={`/Quests/${r.id}`}>Details</Link>}
+          {currentUser && Number(currentUser.id)===Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}
           </div>
       })}
     </div>

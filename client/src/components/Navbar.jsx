@@ -18,6 +18,7 @@ let nav=useNavigate();
         {currentUser && <Link to={"/Quests/new"} style={{ padding: "20px" }}>New-Quests</Link>}
         {currentUser && <Link to={"/userInfo"} style={{padding:"20px"}}>UserInformation</Link>}
         {!currentUser && <NavLink to={"/login"} style={{ padding: "20px" }}>login</NavLink>}
+        {!currentUser && <NavLink to={"/signup"} style={{ padding: "20px" }}>Sign-Up</NavLink>}
       </nav>
       {currentUser && <div onClick={handleLogout}><p>Logout</p></div>}
     </div>
