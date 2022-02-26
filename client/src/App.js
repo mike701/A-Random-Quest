@@ -43,7 +43,7 @@ const [logging,setLogging]=useState(false);
 
   return (
     <div className="App">
-          <Layout currentUser={currentUser} setCurrentUser={setCurrentUser}>
+          <Layout currentUser={currentUser} setCurrentUser={setCurrentUser} >
         <Routes>
           <Route path="/" element={<Home currentUser={currentUser} ></Home>} />
           <Route path='/Quests/*' element={<QuestsContainer currentUser={currentUser} setCurrentUser={setCurrentUser}></QuestsContainer>} />

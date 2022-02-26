@@ -17,7 +17,7 @@ export default function Quests(props) {
 
 
   return (
-    <div>
+    <div >
       <h1>Quests</h1>
       {quests && users && quests.map((r) => {
         return <div key={r.id}>
