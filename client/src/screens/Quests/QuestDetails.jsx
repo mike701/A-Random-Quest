@@ -2,14 +2,15 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import FormCreateComment from '../../components/Forms/FormCreateComment';
 import { getAllComments } from '../../Services/comments';
 
 export default function QuestDetails(props) {
-  const { quests, users } = props
+  const { quests, users,currrentUser } = props
   const [details, setDetails] = useState();
   const [comments, setComments] = useState();
   const [toggleComments, setToggleComments]=useState(false);
-  
+  const [toggleComment, setToggleComment]=useState(false);
   let id = useParams()
   
   //filter all posts from above with the id from the url compared to the posts id
@@ -40,8 +41,9 @@ export default function QuestDetails(props) {
           <div onClick={(e) => { e.preventDefault(); setToggleComments((prevToggle) => !prevToggle) }}>Comments</div>
           <button onClick={(e) => {
             e.preventDefault();
-            
+            setToggleComment((prev)=>!prev)
           }}>Add Comment</button>
+          {toggleComment && <FormCreateComment currrentUser={currrentUser}></FormCreateComment>}
           {comments && toggleComments && comments.map((comment) => {
             return <div key={comment.id}>
               <h3>comment:{comment.content}</h3>
