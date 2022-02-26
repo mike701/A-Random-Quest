@@ -37,7 +37,11 @@ export default function QuestDetails(props) {
           <h2>Category:{r.category}</h2>
           <p>Content:{r.content}</p>
           <h2>UserName:{users.filter((user) => Number(user.id) == Number(r.user_id)).map(u => u.username)}</h2>
-          <div onClick={(e)=>{e.preventDefault();setToggleComments((prevToggle)=>!prevToggle)}}>Comments</div>
+          <div onClick={(e) => { e.preventDefault(); setToggleComments((prevToggle) => !prevToggle) }}>Comments</div>
+          <button onClick={(e) => {
+            e.preventDefault();
+            
+          }}>Add Comment</button>
           {comments && toggleComments && comments.map((comment) => {
             return <div key={comment.id}>
               <h3>comment:{comment.content}</h3>

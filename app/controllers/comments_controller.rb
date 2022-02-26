@@ -21,17 +21,18 @@ class CommentsController < ApplicationController
   end
 
     # Get /users/:user_id/comments
-    # def get_user_comments
-    #   @comments = Comment.all,include: :user
-    #   @user = User.find(params[:user_id])
-    #   @user_comments=[]
-    #   @comment.each do |comment|
-    #     if(comment.user_id==:user_id)
-    #       @user_comments << comment
-    #     end
-    #   end
-    #   render json: @user_comments
-    # end
+    def get_user_comments
+      @comments = Comment.all,include: :user
+      @user = User.find(params[:user_id])
+      @user_comments=[]
+      @comment.each do |comment|
+        if(comment.user_id==:user_id)
+          @user_comments << comment
+        end
+      end
+      puts @user_comments
+      render json: @comments
+    end
 
   # POST /comments
   def create
@@ -69,6 +70,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:upvote,:content, :user_id)
+      params.require(:comment).permit(:upvote,:content, :user_id, :product_id)
     end
 end
