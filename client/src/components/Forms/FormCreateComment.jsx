@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { createComment } from '../../Services/comments';
-import FormCreateUser from './FormCreateUser';
-
+import './Forms.css'
 export default function FormCreateComment(props) {
 //not needed
   const { currentUser,post_id } = props

@@ -36,7 +36,7 @@ export default function FormCreateUser() {
 
 
   return (
-    <form onSubmit={(e) => { handleSubmit(e) }} style={{display:"flex", flexDirection:"column", width:"10vw",position:"absolute", left:"45vw",top:"20vh"}}>
+    <form onSubmit={(e) => { handleSubmit(e) }} style={{display:"flex", flexDirection:"column", width:"10vw",position:"relative", left:"45vw",top:"20vh"}}>
       <label>User Name:</label>
       <input name="username" value={newUser.title} onChange={(e) => { handleChange(e) }}></input>
       <label>Email:</label>
