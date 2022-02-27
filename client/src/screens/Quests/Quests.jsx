@@ -26,7 +26,7 @@ export default function Quests(props) {
           <h2>Category:{r.category}</h2>
           <p>Content:{r.content}</p>
           {users && <h2>UserName:{users?.filter((user) => Number(user.id) === Number(r.user_id)).map(u => u.username)}</h2>}
-          {r && r.id && <Link to={`/Quests/${r.id}`}>Details</Link>}
+          {r && r.id && <Link to={`/Quests/${r.id}`}><button>Details</button></Link>}
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => {
             setUpdate((prev) => !prev);
@@ -34,7 +34,6 @@ export default function Quests(props) {
             setPostValue(r.id)
           }}>Update</button>}
           {update && Number(postValue)==Number(r.id) && <UpdateForm post={r} postValue={r.id}></UpdateForm>}
-          
           </div>
       })}
     </div>
