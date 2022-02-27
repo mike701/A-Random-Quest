@@ -33,7 +33,7 @@ export function UserControl(props) {
   const { forward, backward, right, left, jump } = PlayerControls()
   const { camera } = useThree()
   const velocity = useRef([0, 0, 0])
-  useEffect(()=>api.velocity.subscribe((v)=>(velocity.current=v)),[])
+  useEffect(()=>api.velocity.subscribe((v)=>(velocity.current=v)),)
   useFrame((state) => {
     ref.current.getWorldPosition(camera.position)
     frontVector.set(0, 0, Number(backward) - Number(forward))

@@ -1,0 +1,29 @@
+#transposable {
+  background-color: darkkhaki;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+#transposable > nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+#transposed {
+  background-color: darkkhaki;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 0vw;
+  height: 100vh;
+  width: 20vw;
+}
+#transposed > nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}

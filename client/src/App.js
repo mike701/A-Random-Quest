@@ -61,10 +61,6 @@ function App() {
         </Routes>
       </Layout>
       <div>
-      {/* {!threeEnv && <button onClick={(e) => { e.preventDefault(); setThreeEnv((prev) => !prev); }} style={{position:"absolute", left:"0vw"}}>Return</button>}
-      <div>
-        {threeEnv && <button onClick={(e) => { e.preventDefault(); setThreeEnv((prev) => !prev); }} >3D Environment</button>}
-        {!threeEnv && } */}
       </div>
       <footer style={{position:"absolute",bottom:"0", height:"10vh",width:"100vw", backgroundColor:"black", color:"white"}}>Footer</footer>
     </div>

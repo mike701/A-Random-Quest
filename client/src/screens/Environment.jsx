@@ -1,9 +1,7 @@
 import React from 'react'
 import { Canvas, useLoader } from '@react-three/fiber'
-import { FirstPersonControls, OrbitControls, PerspectiveCamera, PointerLockControls, Sky, useCamera } from "@react-three/drei";
+import { PointerLockControls, Sky} from "@react-three/drei";
 import { usePlane } from "@react-three/cannon";
-import { Suspense} from 'react'
-import { TextureLoader } from 'three'
 import { Physics } from '@react-three/cannon';
 import * as THREE from "three";
 import {UserControl} from './UserControl.jsx'

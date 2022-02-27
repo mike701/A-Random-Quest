@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import {UpdateForm} from '../../components/Forms/UpdateForm';
 import { deletePost } from '../../Services/posts';
 
 export default function Quests(props) {
   const { quests, users,setQuests,currentUser } = props;
-  
-
+  const [update, setUpdate] = useState(false);
+  const[postValue,setPostValue]=useState(null);
   const handleDelete = async (e,id) => {
     e.preventDefault();
     const res = await deletePost(id);
@@ -26,7 +27,13 @@ export default function Quests(props) {
           <p>Content:{r.content}</p>
           {users && <h2>UserName:{users?.filter((user) => Number(user.id) === Number(r.user_id)).map(u => u.username)}</h2>}
           {r && r.id && <Link to={`/Quests/${r.id}`}>Details</Link>}
-          {currentUser && Number(currentUser.id)===Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}
+          {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}
+          {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => {
+            e.preventDefault();
+            setUpdate((prev) => !prev);
+            setPostValue(r.id)
+          }}>Update</button>}
+          {update && postValue===r.id && <UpdateForm post={r}></UpdateForm>}
           </div>
       })}
     </div>
