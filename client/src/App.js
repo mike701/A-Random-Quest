@@ -43,22 +43,28 @@ function App() {
 
   return (
     <div className="App">
-          <Layout currentUser={currentUser} setCurrentUser={setCurrentUser} >
+         <Layout currentUser={currentUser} setCurrentUser={setCurrentUser} style={{overflowY:"scroll"}}>
         <Routes>
           <Route path="/" element={<Home currentUser={currentUser} ></Home>} />
           <Route path='/Quests/*' element={<QuestsContainer currentUser={currentUser} setCurrentUser={setCurrentUser}></QuestsContainer>} />
           <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} setInput={setInput} input={input} setLogging={setLogging}></Login>} />
           <Route path="/userInfo" element={<Info currentUser={currentUser} />} />
           <Route path="/signup" element={<Signup currentUser={currentUser}></Signup>} />
+          <Route path="/three" element={<>
+          <div style={{position: "absolute",top: "50%",left: "35%",width: "10px",height: "10px",borderRadius: "50%",transform: "translate3d(-50%, -50%, 0)",border: "2px solid black",zIndex:"2"}}/>
+          <Suspense fallback={<h1>Hello</h1>} style={{ position: "absolute", top: "0vh" }}>
+          <Environment></Environment>
+          </Suspense>
+          </>
+          } />
           <Route path="/environment" element={<h1></h1>}/>
         </Routes>
       </Layout>
-      {!threeEnv && <button onClick={(e) => { e.preventDefault(); setThreeEnv((prev) => !prev); }}>3D Environment</button>}
       <div>
-        {threeEnv && <button onClick={(e) => { e.preventDefault(); setThreeEnv((prev) => !prev); }} style={{position:"absolute", left:"0vw"}}>3D Environment</button>}
-        {threeEnv && <Suspense fallback={<h1>Hello</h1>}>
-          <Environment></Environment>
-          </Suspense>}
+      {/* {!threeEnv && <button onClick={(e) => { e.preventDefault(); setThreeEnv((prev) => !prev); }} style={{position:"absolute", left:"0vw"}}>Return</button>}
+      <div>
+        {threeEnv && <button onClick={(e) => { e.preventDefault(); setThreeEnv((prev) => !prev); }} >3D Environment</button>}
+        {!threeEnv && } */}
       </div>
       <footer style={{position:"absolute",bottom:"0", height:"10vh",width:"100vw", backgroundColor:"black", color:"white"}}>Footer</footer>
     </div>

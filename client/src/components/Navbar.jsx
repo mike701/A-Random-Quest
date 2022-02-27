@@ -20,6 +20,8 @@ let nav=useNavigate();
         {currentUser && <Link to={"/userInfo"} style={{padding:"20px"}}>UserInformation</Link>}
         {!currentUser && <NavLink to={"/login"} style={{ padding: "20px" }}>login</NavLink>}
         {!currentUser && <NavLink to={"/signup"} style={{ padding: "20px" }}>Sign-Up</NavLink>}
+        {/* https://codesandbox.io/s/vkgi6?file=/src/Player.js for below route */}
+        <NavLink to={"/three"} style={{padding:"20px"}}>Three</NavLink>
       </nav>
       {currentUser && <div onClick={handleLogout}><p>Logout</p></div>}
     </div>
