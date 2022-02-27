@@ -3,6 +3,19 @@
   height: 100vh;
 }
 
+button {
+  background-color: white;
+  border: none;
+  font-size: xx-large;
+  width: 8vw;
+  height: 8vh;
+  margin: 20px 20px;
+  border-radius: 15px;
+}
+button:hover {
+  background-color: aqua;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

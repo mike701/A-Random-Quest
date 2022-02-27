@@ -1,5 +1,5 @@
 #transposable {
-  background-color: darkkhaki;
+  background: linear-gradient(0.25turn, #e66465, #9198e5);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12,7 +12,7 @@
   justify-content: space-between;
 }
 #transposed {
-  background-color: darkkhaki;
+  background: linear-gradient(0.25turn, #e66465, #9198e5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,4 +26,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+nav > a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 2px 2px black;
+  font-style: oblique;
+  font-size: larger;
 }

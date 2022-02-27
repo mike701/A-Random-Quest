@@ -1,0 +1,13 @@
+#layout {
+  overflow-y: scroll;
+  height: 90vh;
+  background-color: rgb(238, 172, 183);
+  color: aliceblue;
+  text-shadow: 2px 2px black;
+}
+a {
+  text-decoration: none;
+  color: aliceblue;
+  font-style: oblique;
+  font-size: larger;
+}
