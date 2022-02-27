@@ -17,7 +17,7 @@ export const upVoteComment = async (post_id) => {
 }
 
 export const updateComment = async (post_id, comment_id, updateData) => {
-  const resp = await api.put(`/posts/${post_id}/comments/${comment_id}`, {post: updateData})
+  const resp = await api.put(`/posts/${post_id}/comments/${comment_id}`, {comment: updateData})
   return resp.data
 }
 

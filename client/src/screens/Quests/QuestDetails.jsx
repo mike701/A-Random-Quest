@@ -59,7 +59,7 @@ export default function QuestDetails(props) {
             setUpdate((prev) => !prev);
             setCommentValue(r=comment.id)
           }}>Update</button>}
-          {update && commentValue===comment.id && <UpdateForm post={r}></UpdateForm>}
+          {update && commentValue===comment.id && <UpdateForm post={comment} commentId={comment.id} currentUser={currentUser}></UpdateForm>}
             </div>
           })}
           </div>
