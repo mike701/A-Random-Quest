@@ -29,11 +29,12 @@ export default function Quests(props) {
           {r && r.id && <Link to={`/Quests/${r.id}`}>Details</Link>}
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => {
-            e.preventDefault();
             setUpdate((prev) => !prev);
+            console.log(update)
             setPostValue(r.id)
           }}>Update</button>}
-          {update && postValue===r.id && <UpdateForm post={r}></UpdateForm>}
+          {update && Number(postValue)==Number(r.id) && <UpdateForm post={r} postValue={r.id}></UpdateForm>}
+          
           </div>
       })}
     </div>
