@@ -48,6 +48,9 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def readFriend
+   render json: @user.friend << "friends tree list"
+  end
 
   private
   # Use callbacks to share common setup or constraints between actions.
