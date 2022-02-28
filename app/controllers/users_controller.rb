@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy friend]
+  before_action :set_user, only: %i[ show update destroy friends]
   before_action :authorize_request, except: [:create, :index]
   protect_from_forgery with: :null_session
 
@@ -49,8 +49,8 @@ class UsersController < ApplicationController
   end
 
   #get friends from /users/user_id/friends
-  def friend
-   render json: @user[:friend]
+  def friends
+   render json: @user.friend
   end
 
   private
