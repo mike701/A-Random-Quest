@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
   #get friends from /users/user_id/friends
   def friends
-   render json: @user.friend
+   render json: @user.attributes.except("password_digest","username","email","content","category")
   end
 
   private
