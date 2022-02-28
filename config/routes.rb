@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/users/:id/comments', to: 'comments#get_user_comments'
   
   get '/users/:id/friends', to: 'users#friends'
-  put '/users/:id/friends', to: 'users#addFriend'
+  put '/users/:id/friends/add', to: 'users#addFriend'
   
   post '/auth/login', to: 'authentications#login'
   get '/auth/verify', to: 'authentications#verify'
