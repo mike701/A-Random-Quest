@@ -16,6 +16,11 @@ export default function Quests(props) {
   }
 
 
+  const handleFriend = (e,newFriend) => {
+    e.preventDefault();
+    console.log(newFriend);
+    
+  }
 
   return (
     <div >
@@ -25,7 +30,10 @@ export default function Quests(props) {
           <h2>Title:{r.title}</h2>
           <h2>Category:{r.category}</h2>
           <p>Content:{r.content}</p>
-          {users && <h2>UserName:{users?.filter((user) => Number(user.id) === Number(r.user_id)).map(u => u.username)}</h2>}
+          {users && <div style={{ display: "flex", flexDirection: "row", justifyContent:"center"}}>
+            <h2>UserName:{users?.filter((user) => Number(user.id) === Number(r.user_id)).map(u => u.username)}</h2>
+            <button onClick={(e) => { handleFriend(e, r.id); }}>Follow</button>
+          </div>}
           {r && r.id && <Link to={`/Quests/${r.id}`}><button>Details</button></Link>}
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => {

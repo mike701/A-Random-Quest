@@ -36,7 +36,7 @@ export default function QuestDetails(props) {
 
   return (
     <div>
-      QuestDetails
+      <h1>QuestDetails</h1>
       {details && details.map((r) => {
         return <div key={r.id}>
           <h2>Title:{r.title}</h2>

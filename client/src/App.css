@@ -11,31 +11,65 @@ button {
   height: 8vh;
   margin: 20px 20px;
   border-radius: 15px;
+  align-self: center;
 }
-button:hover {
-  background-color: aqua;
+button:active {
+  animation-duration: 0.2s;
+  animation-name: ripple;
 }
-
-@media only screen and (max-width: 700px) {
+textarea {
+  width: 30vw;
+  height: 20vh;
+  align-self: center;
+}
+input:focus {
+  outline: #61dafb;
+  border: 2px solid #61dafb;
+}
+/* box-shadow: 0 0 10px #61dafb; */
+textarea:focus {
+  outline: #61dafb;
+  border: 2px solid #61dafb;
+}
+@media only screen and (max-width: 900px) {
   button {
-    width: 6vw;
-    height: 6vh;
-    font-size: 1.5em;
+    width: 20vw;
+    height: 40px;
+    font-size: 0.9rem;
   }
 }
-
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 320px) {
+  button {
+    width: 20vw;
+    height: 40px;
+    font-size: 0.75rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
   button {
     width: 10vw;
     height: 10vh;
-    font-size: 2.3rem;
+    font-size: 1.2rem;
     color: white;
     text-shadow: 2px 2px black;
-    /* font-size: xx-large; */
-    background: radial-gradient(#e66465, #9198e5);
+    background-color: black;
+  }
+
+  textarea {
+    width: 40vw;
   }
 }
-
+@keyframes ripple {
+  from {
+    background-color: #9198e5;
+  }
+  to {
+    background: radial-gradient(#e66465, #9198e5);
+  }
+  to {
+    background-color: #9198e5;
+  }
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

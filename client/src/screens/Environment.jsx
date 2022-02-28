@@ -1,21 +1,31 @@
 import React from 'react'
 import { Canvas, useLoader } from '@react-three/fiber'
-import { PointerLockControls, Sky} from "@react-three/drei";
+import { PointerLockControls, Sky, Text, useNormalTexture} from "@react-three/drei";
 import { usePlane } from "@react-three/cannon";
 import { Physics } from '@react-three/cannon';
 import * as THREE from "three";
 import {UserControl} from './UserControl.jsx'
 export default function Environment() {
   const woodMap = useLoader(THREE.TextureLoader, '/pexels-fwstudio-129731.jpg');
-  const boardMap = useLoader(THREE.TextureLoader,'/pexels-cottonbro-3826435.jpg');
-  
+  const boardMap = useLoader(THREE.TextureLoader, '/pexels-cottonbro-3826435.jpg');
+
+  // const [normalMap] = useNormalTexture(
+  //   0, // index of the normal texture - https://github.com/emmelleppi/normal-maps/blob/master/normals.json
+  //   // second argument is texture attributes
+  //   {
+  //     offset: [0, 0],
+  //     repeat: [1.5, 1.5],
+  //     anisotropy: 8
+  //   }
+  // )
   function Plane(props) {
+    const roughnessMap = useNormalTexture('/pexels-cottonbro-3826435.jpg');
     const [ref] = usePlane(() => ({ rotation: props.rotation, position: props.position }));
     woodMap.wrapS=woodMap.wrapT=THREE.RepeatWrapping
     return (
       <mesh ref={ref} position={props.position} rotation={props.rotation}>
         <planeBufferGeometry args={props.args} attach='geometry' />
-        <meshStandardMaterial attach='material'  map={woodMap} />
+        <meshStandardMaterial attach='material'  normalMap={roughnessMap} map={woodMap} />
       </mesh>)
   }
 
@@ -26,6 +36,12 @@ export default function Environment() {
       <mesh ref={ref} position={props.position} rotation={props.rotation}>
         <planeBufferGeometry args={props.args} attach='geometry' />
         <meshStandardMaterial attach='material'  map={boardMap} />
+        <Text color={"white"} fontSize={1.25} lineHeight={1} letterSpacing={0.05} color={'#EC2D2D'} position={[0, 0, 0.5]} maxWidth={20} textAlign={"center"}>
+          Hello, if this is not your first foray into the A-Random-Quest three-D environment Welcome back!
+          Otherwise welcome here are some instructions. Use WASD for direction controls and space to hop. 
+          If you have clicked the screen and want to leave press esc key. There is a pointer lock that follows your cursor
+          so you can rotate your view.
+        </Text>
       </mesh>)
   }
 
@@ -36,7 +52,7 @@ export default function Environment() {
         <pointLight castShadow intensity={0.8} position={[100,100,100]}></pointLight>
           <Physics gravity={[0,-30,0]}>
         <Plane args={[1000, 1000]} rotation={[-Math.PI / 2, 0, 0]} map-repeat={[240, 240]} color="brown" />
-        <QuestBoard args={[20,20]} rotation={[0,-Math.PI / 2, 0]} />
+        <QuestBoard args={[20, 20]} rotation={[0, -Math.PI / 2, 0]} position={[10,10,10]}/>
           <UserControl></UserControl>
         </Physics>
         <PointerLockControls></PointerLockControls>
