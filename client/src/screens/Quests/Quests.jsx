@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {UpdateForm} from '../../components/Forms/UpdateForm';
 import { deletePost } from '../../Services/posts';
+import { updateUser } from '../../Services/users';
 
 export default function Quests(props) {
   const { quests, users,setQuests,currentUser } = props;
@@ -14,17 +15,36 @@ export default function Quests(props) {
     console.log(res);
     setQuests(quests.filter((quest)=>quest.id===id))
   }
+  let nav = useNavigate();
 
-
-  const handleFriend = (e,newFriend) => {
+  const handleFriend = (e,newFriend,your) => {
     e.preventDefault();
-    console.log(newFriend);
-    
+   
+    if (newFriend.id == your) {
+      alert("You can't follow yourself")
+    } else {
+      console.log(newFriend)
+      newFriend.friend.push(your)
+      console.log(newFriend)
+      
+      console.log(your);
+      const handleSubmit = async () => {
+        if (window.localStorage.getItem("authToken") != null) {
+          const res = await updateUser(newFriend.id, newFriend)
+          console.log(res)
+        } else {
+          alert("You need to sign in!");
+          nav("/login");
+        }
+      }
+      handleSubmit()
+    }
   }
 
   return (
     <div >
       <h1>Quests</h1>
+      {!quests && <h1>Loading</h1>}
       {quests && users && quests.map((r) => {
         return <div key={r.id}>
           <h2>Title:{r.title}</h2>
@@ -32,7 +52,7 @@ export default function Quests(props) {
           <p>Content:{r.content}</p>
           {users && <div style={{ display: "flex", flexDirection: "row", justifyContent:"center"}}>
             <h2>UserName:{users?.filter((user) => Number(user.id) === Number(r.user_id)).map(u => u.username)}</h2>
-            <button onClick={(e) => { handleFriend(e, r.id); }}>Follow</button>
+          {currentUser && <button onClick={(e) => { handleFriend(e,currentUser,r.user_id,r.id); }} >Follow</button>}
           </div>}
           {r && r.id && <Link to={`/Quests/${r.id}`}><button>Details</button></Link>}
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}

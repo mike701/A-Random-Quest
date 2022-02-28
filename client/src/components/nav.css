@@ -4,6 +4,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  width: 100vw;
+  overflow-x: scroll;
 }
 #transposable > nav {
   display: flex;
@@ -34,4 +36,26 @@ nav > a {
   text-shadow: 2px 2px black;
   font-style: oblique;
   font-size: larger;
+}
+
+@media only screen and (max-width: 600px) {
+  #transposable {
+    display: flex;
+    flex-direction: column;
+  }
+  #transposable > .navbarNav {
+    display: flex;
+    flex-direction: column;
+  }
+  #open {
+    height: 30vh;
+    overflow-y: scroll;
+  }
+  #close {
+    height: 0vh;
+    overflow-y: scroll;
+  }
+  #class > :nth-child(1n) {
+    display: hidden;
+  }
 }

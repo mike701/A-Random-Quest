@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { createComment } from '../../Services/comments';
+import { useForm } from '../../hook/useForm';
 import './Forms.css'
 export default function FormCreateComment(props) {
-//not needed
-  const { currentUser,post_id } = props
+
+const { currentUser,post_id } = props
 const modelQuest = {
   user_id: props?.currentUser?.id,
   title: "",
@@ -14,21 +15,14 @@ const modelQuest = {
 }
 
 let nav=useNavigate();
-const [commenting, setCommenting]=useState(modelQuest);
+const { form,handleChange } = useForm(modelQuest);
 
-const handleChange = (e) => {
-  e.preventDefault();
-  const {name, value}=e.target
-    setCommenting((prevPost) => ({
-    ...prevPost,
-    [name]: value
-  }))
-}
+ 
 
 const handleSubmit = async (e) => {
   e.preventDefault();
   if (window.localStorage.getItem("authToken") != null) {
-    const res = await createComment(post_id,commenting);
+    const res = await createComment(post_id,form);
     window.location.reload(false);
   } else {
     alert("You need to sign in!");
@@ -41,15 +35,15 @@ return (
   <form onSubmit={(e) => { handleSubmit(e) }}>
     <label>Title</label>
     <br></br>
-    <input name="title" value={commenting.title} onChange={(e) => { handleChange(e) }}></input>
+    <input name="title" value={form.title} onChange={(e) => { handleChange(e) }}></input>
     <br></br>
     <label>Content</label>
     <br></br>
-    <input name="content" value={commenting.content} onChange={(e) => { handleChange(e) }}></input>
+    <input name="content" value={form.content} onChange={(e) => { handleChange(e) }}></input>
     <br></br>
     <label>Category</label>
     <br></br>
-    <input name="category" value={commenting.category} onChange={(e) => { handleChange(e) }}></input>
+    <input name="category" value={form.category} onChange={(e) => { handleChange(e) }}></input>
     <br></br>
     <button>Submit</button>
   </form>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createPost } from '../../Services/posts'
+import { useForm } from '../../hook/useForm';
 import './Forms.css'
 
 
@@ -13,21 +14,13 @@ export default function FormCreateQuest(props) {
     category:""
   }
   let nav=useNavigate();
-  const [posting, setPosting]=useState(modelQuest);
+  const { form,handleChange } = useForm(modelQuest);
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    const {name, value}=e.target
-      setPosting((prevPost) => ({
-      ...prevPost,
-      [name]: value
-    }))
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (window.localStorage.getItem("authToken") != null) {
-      await createPost(posting);
+      await createPost(form);
       props.setAdded((prevAdd)=>!prevAdd);
       nav("/Quests");
     } else {
@@ -41,15 +34,15 @@ export default function FormCreateQuest(props) {
     <form onSubmit={(e) => { handleSubmit(e) }}>
       <label>Title</label>
       <br></br>
-      <input name="title" value={posting.title} onChange={(e) => { handleChange(e) }}></input>
+      <input name="title" value={form.title} onChange={(e) => { handleChange(e) }}></input>
       <br></br>
       <label>Content</label>
       <br></br>
-      <input name="content" value={posting.content} onChange={(e) => { handleChange(e) }}></input>
+      <input name="content" value={form.content} onChange={(e) => { handleChange(e) }}></input>
       <br></br>
       <label>Category</label>
       <br></br>
-      <input name="category" value={posting.category} onChange={(e) => { handleChange(e) }}></input>
+      <input name="category" value={form.category} onChange={(e) => { handleChange(e) }}></input>
       <br></br>
       <button>Submit</button>
     </form>
