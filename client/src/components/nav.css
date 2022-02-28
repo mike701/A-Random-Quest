@@ -5,7 +5,13 @@
   align-items: center;
   justify-content: space-around;
   width: 100vw;
+  position: relative;
+  left: 0px;
   overflow-x: scroll;
+}
+#transposable > button {
+  margin-left: 70px;
+  margin-right: 10px;
 }
 #transposable > nav {
   display: flex;
@@ -42,6 +48,10 @@ nav > a {
   #transposable {
     display: flex;
     flex-direction: column;
+  }
+  #transposable > button {
+    margin: 0 auto;
+    overflow-x: none;
   }
   #transposable > .navbarNav {
     display: flex;
