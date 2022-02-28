@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {UpdateForm} from '../../components/Forms/UpdateForm';
 import { deletePost } from '../../Services/posts';
-import { getUserFriends, updateUser } from '../../Services/users';
+import { getUserFriends, updateFriends, updateUser } from '../../Services/users';
 
 export default function Quests(props) {
   const { quests, users,setQuests,currentUser } = props;
@@ -30,9 +30,9 @@ export default function Quests(props) {
       console.log(your);
       const handleSubmit = async () => {
         if (window.localStorage.getItem("authToken") != null) {
-          const res = await getUserFriends(your)
-          // const res = await updateUser(newFriend.id, newFriend)
-          console.log(res)
+          const friend = await getUserFriends(your)
+          const res = await updateFriends(newFriend.id, newFriend)
+          console.log(res, friend)
         } else {
           alert("You need to sign in!");
           nav("/login");
