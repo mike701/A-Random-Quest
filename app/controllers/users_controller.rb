@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  attr_accessible :friend
+  serialize :friend, Array
   before_action :set_user, only: %i[ show update destroy friends addFriend]
   before_action :authorize_request, except: [:create, :index]
   protect_from_forgery with: :null_session
