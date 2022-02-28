@@ -57,8 +57,8 @@ class UsersController < ApplicationController
 
   def addFriend
     @friend=`#{user_params[:friend]}`
-    if @user.update(@friend)
-      render json: @user.except("password_digest", "email", "created_at", "updated_at")
+    if @friend
+      render json: @friend
     else
       render json: @user.errors, status: :unprocessable_entity
     end
