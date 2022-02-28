@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy friends addFriend]
   before_action :authorize_request, except: [:create, :index]
   protect_from_forgery with: :null_session
-
+  attr_accessible :friend
+  serialize :friend
 
   # GET /users
   def index
@@ -55,7 +56,7 @@ class UsersController < ApplicationController
 
   def addFriend
     if @user.update(user_params)
-      render json: @user
+      render json: @user.except("password_digest", "email", "created_at", "updated_at")
     else
       render json: @user.errors, status: :unprocessable_entity
     end

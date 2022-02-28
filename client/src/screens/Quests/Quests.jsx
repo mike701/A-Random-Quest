@@ -24,7 +24,7 @@ export default function Quests(props) {
       alert("You can't follow yourself")
     } else {
       console.log(newFriend)
-      newFriend.friend=`${your}`
+      newFriend.friend=`[${your}]`
       console.log(newFriend)
       
       console.log(your);
