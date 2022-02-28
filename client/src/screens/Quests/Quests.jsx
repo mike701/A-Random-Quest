@@ -24,15 +24,16 @@ export default function Quests(props) {
       alert("You can't follow yourself")
     } else {
       console.log(newFriend)
-      newFriend.friend.push(your)
+      newFriend.friend=`${your}`
       console.log(newFriend)
       
       console.log(your);
       const handleSubmit = async () => {
         if (window.localStorage.getItem("authToken") != null) {
-          const friend = await getUserFriends(your)
-          const res = await updateFriends(newFriend.id, newFriend)
-          console.log(res, friend)
+          // const friend = await getUserFriends(your)
+          // const res = await updateFriends(newFriend.id, newFriend)
+          const res= await updateUser(newFriend.id,newFriend)
+          console.log(res)
         } else {
           alert("You need to sign in!");
           nav("/login");
