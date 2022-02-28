@@ -48,8 +48,10 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  #get friends from /users/user_id/friends
   def readFriend
-   render json: @user.friend << "friends tree list"
+    @friends=@user.friend
+   render json: @friends
   end
 
   private
