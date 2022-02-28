@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   #get friends from /users/user_id/friends
   def readFriend
     @friends=@user.friend
-   render json: @friends
+   render json: @user,@friends
   end
 
   private
