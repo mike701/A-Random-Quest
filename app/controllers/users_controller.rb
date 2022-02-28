@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   end
 
   def addFriend
-    @friend=`#{user_params}`
+    @friend=user_params
     if @friend
       render json: @friend
     else
