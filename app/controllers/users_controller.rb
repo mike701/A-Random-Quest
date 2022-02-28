@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy friends]
+  before_action :set_user, only: %i[ show update destroy friends addFriend]
   before_action :authorize_request, except: [:create, :index]
   protect_from_forgery with: :null_session
 
@@ -53,6 +53,13 @@ class UsersController < ApplicationController
    render json: @user[:friend]
   end
 
+  def addFriend
+    if @user.update(user_params)
+      render json: @user[:friend]
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+   end
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
