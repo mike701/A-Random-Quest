@@ -51,7 +51,8 @@ class UsersController < ApplicationController
 
   #get friends from /users/user_id/friends
   def friends
-   render json: @user[:friend] <<"help"
+    @user[:friend]=@user[:friend] <<"help"
+   render json: @user[:friend]
   end
 
   def addFriend
