@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom';
 import {UpdateForm} from '../../components/Forms/UpdateForm';
+import QuestCard from '../../components/QuestCard';
 import { deletePost } from '../../Services/posts';
 import { updateFriends } from '../../Services/users';
 
@@ -44,7 +45,8 @@ export default function Quests(props) {
       <h1>Quests</h1>
       {!quests && <h1>Loading</h1>}
       {quests && users && quests.map((r) => {
-        return <div key={r.id}>
+        return <QuestCard key={r.id}>
+        
           <h2>Title:{r.title}</h2>
           <h2>Category:{r.category}</h2>
           <p>Content:{r.content}</p>
@@ -60,7 +62,7 @@ export default function Quests(props) {
             setPostValue(r.id)
           }}>Update</button>}
           {update && Number(postValue)===Number(r.id) && <UpdateForm post={r} postValue={r.id}></UpdateForm>}
-          </div>
+          </QuestCard>
       })}
     </div>
   )
