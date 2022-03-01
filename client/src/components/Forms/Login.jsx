@@ -1,12 +1,11 @@
 import React from 'react'
-import { useState } from 'react';
-import { useNavigate, useNavigationType } from 'react-router-dom';
-import { loginUser } from '../../Services/users';
+import { useNavigate} from 'react-router-dom';
+// import { loginUser } from '../../Services/users';
 import './Forms.css'
 
 
 export default function Login(props) {
-  const { setCurrentUser,currentUser,input,setInput,setLogging } = props
+  const { setInput,setLogging } = props
   let navigate=useNavigate();
  
   

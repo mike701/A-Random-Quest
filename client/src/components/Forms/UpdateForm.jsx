@@ -27,9 +27,9 @@ export function UpdateForm(props) {
     if (window.localStorage.getItem("authToken") != null) {
       console.log(commenting)
       if (!props.postValue) {
-        const res = await updateComment(post.id, commentId, commenting)
+        await updateComment(post.id, commentId, commenting)
       } else {
-        const res = await updatePost(post.id, commenting)
+         await updatePost(post.id, commenting)
       }
       window.location.reload(false);
     } else {
@@ -41,7 +41,7 @@ export function UpdateForm(props) {
   function CallKeys() {
     return <>
     {keys.map((key,i) => {
-      if (key !== 'post_id' && key!=="id" && key!=="upvote" && key!=="comments" && key!=="user" && key !=='user_id' && key !=='created_at' && key !=='updated_at') return <textarea name={`${key}`} placeholder={key} value={commenting[key]} key={i} onChange={(e)=>{handleChange(e);}} style={{height:"10vh"}}></textarea>
+      return <>{ (key !== 'post_id' && key!=="id" && key!=="upvote" && key!=="comments" && key!=="user" && key !=='user_id' && key !=='created_at' && key !=='updated_at') && <textarea name={`${key}`} placeholder={key} value={commenting[key]} key={i} onChange={(e)=>{handleChange(e);}} style={{height:"10vh"}}></textarea>}</>
     })}
       </>
   }

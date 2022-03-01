@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { createComment } from '../../Services/comments';
 import { useForm } from '../../hook/useForm';
 import './Forms.css'
 export default function FormCreateComment(props) {
 
-const { currentUser,post_id } = props
+const {post_id } = props
 const modelQuest = {
   user_id: props?.currentUser?.id,
   title: "",
@@ -22,7 +22,7 @@ const { form,handleChange } = useForm(modelQuest);
 const handleSubmit = async (e) => {
   e.preventDefault();
   if (window.localStorage.getItem("authToken") != null) {
-    const res = await createComment(post_id,form);
+    await createComment(post_id,form);
     window.location.reload(false);
   } else {
     alert("You need to sign in!");

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 import {UpdateForm} from '../../components/Forms/UpdateForm';
 import { deletePost } from '../../Services/posts';
-import { getUserFriends, updateFriends, updateUser } from '../../Services/users';
+import { updateFriends } from '../../Services/users';
 
 export default function Quests(props) {
   const { quests, users,setQuests,currentUser } = props;
@@ -20,7 +20,7 @@ export default function Quests(props) {
   const handleFriend = (e,newFriend,your) => {
     e.preventDefault();
    
-    if (newFriend.id == your) {
+    if (newFriend.id === your) {
       alert("You can't follow yourself")
     } else {
       console.log(newFriend)
@@ -59,7 +59,7 @@ export default function Quests(props) {
             console.log(update)
             setPostValue(r.id)
           }}>Update</button>}
-          {update && Number(postValue)==Number(r.id) && <UpdateForm post={r} postValue={r.id}></UpdateForm>}
+          {update && Number(postValue)===Number(r.id) && <UpdateForm post={r} postValue={r.id}></UpdateForm>}
           </div>
       })}
     </div>

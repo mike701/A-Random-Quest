@@ -20,7 +20,7 @@ function App() {
   const [currentUser,setCurrentUser]=useState();
   const [input, setInput] = useState(loginData)
   const [logging, setLogging] = useState(false);
-  const [threeEnv, setThreeEnv]=useState(false);
+  // const [threeEnv, setThreeEnv]=useState(false);
 
   useEffect(() => {
     if (input !== loginData) {
@@ -31,7 +31,7 @@ function App() {
       }
       logIn()
     }
-  },[logging])
+  },[logging,input])
 
   useEffect(() => {
     const getUser = async () => {
@@ -57,7 +57,7 @@ function App() {
           </Suspense>
           </>
           } />
-          <Route path="/environment" element={<h1></h1>}/>
+          {/* <Route path="/environment" element={<h1>Hello</h1>}/> */}
         </Routes>
       </Layout>
       <div>

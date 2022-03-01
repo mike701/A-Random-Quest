@@ -20,7 +20,7 @@ export default function QuestDetails(props) {
   
   //filter all posts from above with the id from the url compared to the posts id
   useEffect(() => {
-    if (quests) setDetails(quests.filter(u => u.id == id.post_id)); 
+    if (quests) setDetails(quests.filter(u => Number(u.id) === Number(id.post_id))); 
   }, [quests])
 
   // Find all Comments based on the post id and then set state for them
