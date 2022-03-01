@@ -24,7 +24,7 @@ export default function Quests(props) {
       alert("You can't follow yourself")
     } else {
       console.log(newFriend)
-      newFriend.friend=`[${your}]`
+      newFriend.friendsList=`${newFriend.friendsList==null? "": newFriend.friendsList}${your}`
       console.log(newFriend)
       
       console.log(your);
@@ -32,8 +32,7 @@ export default function Quests(props) {
         if (window.localStorage.getItem("authToken") != null) {
           // const friend = await getUserFriends(your)
           // const res = await updateFriends(newFriend.id, newFriend.friend)
-
-          const res= await updateFriends(newFriend.id,newFriend.friend)
+          const res= await updateUser(newFriend.id,newFriend)
           // console.log(friend)
           console.log(res)
         } else {
