@@ -60,7 +60,9 @@ class UsersController < ApplicationController
       @friend.save
       # @user.friend 
       if @user.friends << @friend
-        render json: @user.friends
+        if @user.save
+          render json: @user.friends
+        end
       else
         render json: @friend
       end
