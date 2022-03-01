@@ -58,8 +58,8 @@ class UsersController < ApplicationController
 
   def addFriend
   if params[:friendsList]
-    @user.update(params[:friendsList])
     render json: params[:friendsList]
+    # @user.update(params[:friendsList])
     else
       render json: @user.errors, status: :unprocessable_entity
     end
