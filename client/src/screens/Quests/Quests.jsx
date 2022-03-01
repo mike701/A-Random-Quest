@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {UpdateForm} from '../../components/Forms/UpdateForm';
 import QuestCard from '../../components/QuestCard';
 import { deletePost } from '../../Services/posts';
-import { updateFriends } from '../../Services/users';
+import { addFriends, updateFriends } from '../../Services/users';
 
 export default function Quests(props) {
   const { quests, users,setQuests,currentUser } = props;
@@ -28,7 +28,7 @@ export default function Quests(props) {
       console.log(your);
       const handleSubmit = async () => {
         if (window.localStorage.getItem("authToken") != null) {
-          const res = await updateFriends( your,newFriend.id)
+          const res = await addFriends(your,newFriend.id)
           // const res = await getUserFriends(newFriend.id)
           console.log(res)
         } else {

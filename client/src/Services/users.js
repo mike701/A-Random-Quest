@@ -42,7 +42,7 @@ export const getUserFriends = async (user_id) => {
   const resp = await api.get(`/users/${user_id}/friends`)
   return resp.data
 }
-export const updateFriends = async ( friend_id,user_id) => {
+export const addFriends = async ( friend_id,user_id) => {
   const resp = await api.post(`/users/${user_id}/friends/${friend_id}`);
   console.log(resp)
     return resp.data;
