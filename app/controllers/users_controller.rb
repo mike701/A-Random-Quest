@@ -57,13 +57,13 @@ class UsersController < ApplicationController
 
   def addFriend
       @friend = Friend.new({user_id:params[:friend_id]})
-      render json: @friend
-      # if @friend.save
-      #   @user.friend << @friend
-      #   render json: @user, include: :friend
-      # else
-      #   render json: @friend
-      # end
+      # render json: @friend
+      if @friend.save
+        @user.friend << @friend
+        render json: @user, include: :friend
+      else
+        render json: @friend
+      end
   end
   
   private
