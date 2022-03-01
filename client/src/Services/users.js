@@ -38,10 +38,9 @@ export const getUserFriends = async (user_id) => {
   const resp = await api.get(`/users/${user_id}/friends`)
   return resp.data
 }
-export const updateFriends = async (user_id, updateData) => {
-  const resp = await api.put(`/users/${user_id}/friends/add`, {friendsList: {...updateData}[0]})
-  console.log(updateData,resp)
-  return resp.data
+export const updateFriends = async (user_id, friend_id) => {
+    const resp = await api.put(`/users/${user_id}/friends/${friend_id}`);
+    return resp.data;
 }
 export const getOneUserComments = async (user_id) => {
   const resp = await api.get(`/users/${user_id}/comments`)
