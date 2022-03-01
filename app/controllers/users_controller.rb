@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
  
-  before_action :set_user, only: %i[ show update destroy friends addFriend]
+  before_action :set_user, only: %i[ show update destroy friend addFriend]
   before_action :authorize_request, except: [:create, :index]
   protect_from_forgery with: :null_session
 
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    # @user
     render json: @user.attributes.except("password"),  include: :friend
   end
 
@@ -51,26 +52,23 @@ class UsersController < ApplicationController
   end
 
   #get friends from /users/user_id/friends
-  def friends
-    # render json: @user.friends
-    if @user.friends
-      render json: @user.friends
-    end
+  def friend
+    render json: @user.friends
   end
 
   def addFriend
-      @friend = User.find(params[:friend_id])
+      @friend = Friend.new({"user_id":params[:friend_id]})
+      @user
       @user.friends << @friend
-      render json: @user
+      render json: @user, include: :friends
   end
   
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_user
     @user = User.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:email, :username, :password)
   end

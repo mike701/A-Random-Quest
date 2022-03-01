@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :friends
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -14,8 +13,8 @@ Rails.application.routes.draw do
   get '/comments', to: 'comments#get_all_comments'
   get '/users/:id/comments', to: 'comments#get_user_comments'
   
-  get '/users/:user_id/friends', to: 'users#friends'
-  post '/users/:user_id/friends/:friend_id', to: 'users#addFriend'
+  get '/users/:id/friends', to: 'users#friend'
+  post '/users/:id/friends/:friend_id', to: 'users#addFriend'
   
   post '/auth/login', to: 'authentications#login'
   get '/auth/verify', to: 'authentications#verify'
