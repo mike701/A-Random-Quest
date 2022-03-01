@@ -51,11 +51,10 @@ class UsersController < ApplicationController
 
   #get friends from /users/user_id/friends
   def friends
-   render json: @user[:friend]
+   render json: @user.friend
   end
 
   def addFriend
-    
     if @user.update(user_params)
       render json: @user[:friend]
     else
