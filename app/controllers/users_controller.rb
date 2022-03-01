@@ -60,7 +60,7 @@ class UsersController < ApplicationController
       @friend.save
       # @user.friend 
       if @user.friends << @friend
-        render json: @user, include: :friends
+        render json: @user.friends
       else
         render json: @friend
       end
