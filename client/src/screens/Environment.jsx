@@ -27,17 +27,18 @@ export default function Environment() {
     useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
     return   <group rotation={[0, 0, 0]} scale={[10, 10, 10]} position={[0,10,0]}>
       <primitive object={scene}/>
-      {/* <mesh material={nodes.mremireh_body.materials} geometry={nodes.mremireh_body.geometry}/> */}
     </group>
   }
   function Plane(props) {
-    const roughnessMap = useNormalTexture('/pexels-cottonbro-3826435.jpg');
+    const roughnessMap = useNormalTexture('/pexels-jonathan-borba-3601244',{offset:[0,0],repeat:[1.2,1.3],anisotropy:10});
     const [ref] = usePlane(() => ({ rotation: props.rotation, position: props.position }));
     woodMap.wrapS=woodMap.wrapT=THREE.RepeatWrapping
     return (
       <mesh ref={ref} position={props.position} rotation={props.rotation}>
         <planeBufferGeometry args={props.args} attach='geometry' />
-        <meshStandardMaterial attach='material'  normalMap={roughnessMap} map={woodMap} />
+        <meshStandardMaterial attach='material'  map={woodMap} >
+          <mesh normalMap={roughnessMap}></mesh>
+          </meshStandardMaterial>
       </mesh>)
   }
 
