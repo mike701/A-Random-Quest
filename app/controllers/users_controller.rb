@@ -60,8 +60,6 @@ class UsersController < ApplicationController
       @friend = Friend.find(params[:friend_id])
       @user.friend << @friend
       render json: @user, include: :friend
-    end
-  
   end
   private
   # Use callbacks to share common setup or constraints between actions.
