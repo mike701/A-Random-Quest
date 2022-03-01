@@ -51,14 +51,13 @@ class UsersController < ApplicationController
 
   #get friends from /users/user_id/friends
   def friends
-    @user[:friend]="help"
    render json: @user[:friend]
   end
 
   def addFriend
-    @user.update(user_params)
-    if @friend
-      render json: user_params
+    
+    if @user.update(user_params)
+      render json: @user[:friend]
     else
       render json: @user.errors, status: :unprocessable_entity
     end
