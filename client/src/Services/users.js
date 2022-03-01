@@ -38,7 +38,7 @@ export const getUserFriends = async (user_id) => {
   const resp = await api.get(`/users/${user_id}/friends`)
   return resp.data
 }
-export const updateFriends = async (user_id, friend_id) => {
+export const updateFriends = async ( friend_id,user_id) => {
     const resp = await api.put(`/users/${user_id}/friends/${friend_id}`);
     return resp.data;
 }
