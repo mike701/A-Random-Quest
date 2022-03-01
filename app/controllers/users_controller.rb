@@ -53,11 +53,12 @@ class UsersController < ApplicationController
   #get friends from /users/user_id/friends
   def friends
     @friends=@user.attributes.except("password_digest")
-    render json: @friends.values[-1]
+    render json: @friends["friendsList"]
   end
 
   def addFriend
-    if @user.update(user_params)
+    
+    if @user.update(param[:friendsList])
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
