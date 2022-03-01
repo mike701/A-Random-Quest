@@ -48,7 +48,7 @@ export default function Environment() {
       <mesh ref={ref} position={props.position} rotation={props.rotation}>
         <planeBufferGeometry args={props.args} attach='geometry' />
         <meshStandardMaterial attach='material'  map={boardMap} />
-        <Text color={"white"} fontSize={1.25} lineHeight={1} letterSpacing={0.05} color={'#EC2D2D'} position={[0, 0, 0.5]} maxWidth={20} textAlign={"center"}>
+        <Text fontSize={1.25} lineHeight={1} letterSpacing={0.05} color={'#EC2D2D'} position={[0, 0, 0.5]} maxWidth={20} textAlign={"center"}>
           Hello, if this is not your first foray into the A-Random-Quest three-D environment Welcome back!
           Otherwise welcome here are some instructions. Use WASD for direction controls and space to hop. 
           If you have clicked the screen and want to leave press esc key. There is a pointer lock that follows your cursor

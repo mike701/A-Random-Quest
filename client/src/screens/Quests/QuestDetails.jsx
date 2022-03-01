@@ -21,7 +21,7 @@ export default function QuestDetails(props) {
   //filter all posts from above with the id from the url compared to the posts id
   useEffect(() => {
     if (quests) setDetails(quests.filter(u => Number(u.id) === Number(id.post_id))); 
-  }, [quests])
+  }, [quests,id.post_id])
 
   // Find all Comments based on the post id and then set state for them
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function QuestDetails(props) {
           <h2>Title:{r.title}</h2>
           <h2>Category:{r.category}</h2>
           <p>Content:{r.content}</p>
-          <h2>UserName:{users.filter((user) => Number(user.id) == Number(r.user_id)).map(u => u.username)}</h2>
+          <h2>UserName:{users.filter((user) => Number(user.id) === Number(r.user_id)).map(u => u.username)}</h2>
           <div style={{display:"flex",flexDirection:"row", justifyContent:"center"}}>
             <div onClick={(e) => { e.preventDefault(); setToggleComments((prevToggle) => !prevToggle) }}><button>Comments</button></div>
           <button onClick={(e) => {
