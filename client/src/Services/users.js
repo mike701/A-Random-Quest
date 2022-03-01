@@ -35,7 +35,7 @@ export const getOneUserPosts = async (user_id) => {
   return resp.data
 }
 export const getOneUserFriends = async (user_id) => {
-  const resp = await api.get(`/users/${user_id}`)
+  const resp = await api.get(`/users/${user_id}/friends`)
   return resp.data
 }
 export const getUserFriends = async (user_id) => {
