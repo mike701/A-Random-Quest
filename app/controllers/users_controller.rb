@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   #get friends from /users/user_id/friends
   def friends
     @friends=@user.attributes.except("password_digest")
-    render json: @friends.values
+    render json: @friends.values[3]
   end
 
   def addFriend
