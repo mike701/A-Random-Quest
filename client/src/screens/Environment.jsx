@@ -21,11 +21,11 @@ export default function Environment() {
   //     anisotropy: 8
   //   }
   // )
-  function Avatar() {
+  function Avatar(props) {
     const { nodes, scene } = useGLTF("/scene.gltf");
     console.log(nodes,scene)
     useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
-    return   <group rotation={[0, 0, 0]} scale={[10, 10, 10]} position={[0,10,0]}>
+    return   <group rotation={[0, 0, 0]} scale={[10, 10, 10]} position={props.position}>
       <primitive object={scene}/>
     </group>
   }
@@ -67,7 +67,7 @@ export default function Environment() {
         <Plane args={[1000, 1000]} rotation={[-Math.PI / 2, 0, 0]} map-repeat={[240, 240]} color="brown" />
         <QuestBoard args={[20, 20]} rotation={[0, -Math.PI / 2, 0]} position={[10,10,10]}/>
         <UserControl></UserControl>
-        <Avatar></Avatar>
+        <Avatar position={[0,10,0]}></Avatar>
         </Physics>
         <PointerLockControls></PointerLockControls>
     </Canvas> 
