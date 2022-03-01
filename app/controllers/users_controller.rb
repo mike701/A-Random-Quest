@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 
   def addFriend
     
-    if @user.update(param[:friendsList])
+    if @user.update(params[:friendsList])
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
