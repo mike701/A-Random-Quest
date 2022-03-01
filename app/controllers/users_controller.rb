@@ -56,14 +56,13 @@ class UsersController < ApplicationController
   end
 
   def addFriend
-    @friend=user_params
-    @user.update(@friend)
+    @user.update(user_params)
     if @friend
-      render json: @user
+      render json: user_params
     else
       render json: @user.errors, status: :unprocessable_entity
     end
-   end
+  end
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
