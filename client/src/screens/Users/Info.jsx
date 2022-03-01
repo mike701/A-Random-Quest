@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { getOneUserPosts } from '../../Services/users';
+import { getOneUserFriends, getOneUserPosts } from '../../Services/users';
 
 export default function Info(props) {
   const { currentUser } = props;
@@ -12,9 +12,10 @@ export default function Info(props) {
     const fetchUserPosts = async () => {
       if (currentUser?.id) {
         const res = await getOneUserPosts(currentUser.id);
-        const resp = await getOneUserPosts(currentUser.id);
+        // const resp = await getOneUserPosts(currentUser.id);
+        const resp = await getOneUserFriends(currentUser.id);
         // console.log("comments:",resp);
-        // console.log(res);
+        console.log(resp);
         setPosts(res);
         setToggle(true);
       }
