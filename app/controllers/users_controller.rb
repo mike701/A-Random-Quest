@@ -62,7 +62,7 @@ class UsersController < ApplicationController
         @user.friend << @friend
         render json: @user, include: :friend
       else
-        render :new, status: :unprocessable_entity
+        render json: @friend
       end
   end
   
