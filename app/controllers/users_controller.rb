@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   #get friends from /users/user_id/friends
   def friends
     @friends=@user.attributes.except("password_digest")
-    render json: @friends.values[3]
+    render json: @friends.values[-1]
   end
 
   def addFriend
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:email, :username, :password, :friend)
+    params.require(:user).permit(:email, :username, :password, :friendsList)
   end
 
 

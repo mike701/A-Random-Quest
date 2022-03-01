@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :username
       t.string :email
       t.string :password_digest
-      t.string :friend, array: true, default: [], null: true, foreign_key: true
+      t.string :friend
 
       t.timestamps
     end
