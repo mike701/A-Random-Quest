@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user.attributes.except("password"),  include: :posts
+    render json: @user.attributes.except("password"),  include: :posts,include: :friend
   end
 
   # POST /users
