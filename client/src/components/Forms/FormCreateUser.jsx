@@ -11,7 +11,6 @@ export default function FormCreateUser() {
     username: "",
     email: "",
     password: "",
-    friend: "",
     friendsList:""
   }
   let nav=useNavigate();
