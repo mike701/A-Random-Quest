@@ -57,7 +57,11 @@ class UsersController < ApplicationController
   end
 
   def addFriend
-    render json: @user.update(params[:friendsList])
+  if @user.update(params[:friendsList])
+    render json: @user.attributes.except("password_digest"),  include: :posts
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
     # if @user.update(params[:friendsList])
     #   render json: @user
     # else
