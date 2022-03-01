@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   def friends
     # render json: @user.friends
     if @user.friends
-      render json: @user.friends
+      render json: @user
     end
   end
 
