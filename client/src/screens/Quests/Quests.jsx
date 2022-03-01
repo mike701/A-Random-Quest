@@ -24,13 +24,10 @@ export default function Quests(props) {
       alert("You can't follow yourself")
     } else {
       console.log(newFriend)
-      newFriend.friendsList=`${newFriend.friendsList==null? "": newFriend.friendsList}${your}`
-      console.log(newFriend)
-      
       console.log(your);
       const handleSubmit = async () => {
         if (window.localStorage.getItem("authToken") != null) {
-          const res = await updateFriends(newFriend.id, your)
+          const res = await updateFriends( your,newFriend.id)
           // const res = await getUserFriends(newFriend.id)
           console.log(res)
         } else {

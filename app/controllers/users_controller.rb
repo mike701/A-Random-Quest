@@ -52,12 +52,11 @@ class UsersController < ApplicationController
 
   #get friends from /users/user_id/friends
   def friends
-    render json: @user, include: Friend.all
+    render json: @user, include: :friend
   end
 
   def addFriend
       @friend = Friend.new({user_id:params[:friend_id]})
-      # render json: @friend
       if @friend.save
         @user.friend << @friend
         render json: @user, include: :friend
