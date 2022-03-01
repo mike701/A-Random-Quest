@@ -57,9 +57,13 @@ class UsersController < ApplicationController
   end
 
   def addFriend
-      @friend = Friend.find(params[:friend_id])
-      @user.friend << @friend
-      render json: @user, include: :friend
+      @friend = Friend.new(params[:friend_id])
+      if @friend.save
+        @user.friend << @friend
+        render json: @user, include: :friend
+      else
+        render :new, status: :unprocessable_entity
+      end
   end
   
   private
