@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { Canvas, useLoader } from '@react-three/fiber'
-import { PointerLockControls, Sky, Text, useNormalTexture} from "@react-three/drei";
+import { PointerLockControls, Sky, Text, useGLTF, useNormalTexture} from "@react-three/drei";
 import { usePlane } from "@react-three/cannon";
 import { Physics } from '@react-three/cannon';
 import * as THREE from "three";
-import {UserControl} from './UserControl.jsx'
+import { UserControl } from './UserControl.jsx'
+
+
+
 export default function Environment() {
   const woodMap = useLoader(THREE.TextureLoader, '/pexels-fwstudio-129731.jpg');
   const boardMap = useLoader(THREE.TextureLoader, '/pexels-cottonbro-3826435.jpg');
@@ -18,6 +21,15 @@ export default function Environment() {
   //     anisotropy: 8
   //   }
   // )
+  function Avatar() {
+    const { nodes, scene } = useGLTF("/scene.gltf");
+    console.log(nodes,scene)
+    useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
+    return   <group rotation={[0, 0, 0]} scale={[10, 10, 10]} position={[0,10,0]}>
+      <primitive object={scene}/>
+      {/* <mesh material={nodes.mremireh_body.materials} geometry={nodes.mremireh_body.geometry}/> */}
+    </group>
+  }
   function Plane(props) {
     const roughnessMap = useNormalTexture('/pexels-cottonbro-3826435.jpg');
     const [ref] = usePlane(() => ({ rotation: props.rotation, position: props.position }));
@@ -53,9 +65,12 @@ export default function Environment() {
           <Physics gravity={[0,-30,0]}>
         <Plane args={[1000, 1000]} rotation={[-Math.PI / 2, 0, 0]} map-repeat={[240, 240]} color="brown" />
         <QuestBoard args={[20, 20]} rotation={[0, -Math.PI / 2, 0]} position={[10,10,10]}/>
-          <UserControl></UserControl>
+        <UserControl></UserControl>
+        <Avatar></Avatar>
         </Physics>
         <PointerLockControls></PointerLockControls>
     </Canvas> 
   )
 }
+
+useGLTF.preload("/scene.gltf")
