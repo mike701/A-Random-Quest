@@ -52,18 +52,18 @@ class UsersController < ApplicationController
 
   #get friends from /users/user_id/friends
   def friends
-    @friends=@user.attributes.except("password_digest")
-    render json: @friends["friendsList"]
+    render json: @user, include: :friend
   end
 
   def addFriend
       @friend = Friend.new(params[:friend_id])
-      if @friend.save
-        @user.friend << @friend
-        render json: @user, include: :friend
-      else
-        render json: @friend
-      end
+      render json: @friend
+      # if @friend.save
+      #   @user.friend << @friend
+      #   render json: @user, include: :friend
+      # else
+      #   render json: @friend
+      # end
   end
   
   private
