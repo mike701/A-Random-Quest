@@ -32,8 +32,8 @@ export default function Quests(props) {
         if (window.localStorage.getItem("authToken") != null) {
           // const friend = await getUserFriends(your)
           // const res = await updateFriends(newFriend.id, newFriend.friend)
-          
-          const res= await updateFriends(newFriend.id,newFriend)
+
+          const res= await updateFriends(newFriend.id,newFriend.friend)
           // console.log(friend)
           console.log(res)
         } else {

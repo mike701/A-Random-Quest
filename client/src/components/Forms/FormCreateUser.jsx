@@ -11,7 +11,8 @@ export default function FormCreateUser() {
     username: "",
     email: "",
     password: "",
-    friend:[]
+    friend: "",
+    friendsList:""
   }
   let nav=useNavigate();
   const { form, handleChange } = useForm(modelUser);

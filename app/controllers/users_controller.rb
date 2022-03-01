@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         token: @token
         }, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: user_params, status: :unprocessable_entity
     end
   end
 
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:email, :username, :password, :friendsList)
+    params.require(:user).permit(:email, :username, :password, :friendsList,:friend)
   end
 
 
