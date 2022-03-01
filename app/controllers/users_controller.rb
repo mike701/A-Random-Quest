@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def addFriend
-    render json: @user.attributes.except("password_digest")["friendsList"]
+    render json: @user
     # if @user.update(params[:friendsList])
     #   render json: @user
     # else
