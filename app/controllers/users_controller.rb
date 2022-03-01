@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def addFriend
-    render json: user_params
+    render json: params[:user]
     # if @user.update(params[:friendsList])
     #   render json: @user
     # else
