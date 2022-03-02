@@ -38,7 +38,7 @@ export default function Info(props) {
       }
     }
     fetchUserPosts();
-  }, [])
+  })
   
 
   return <div>
