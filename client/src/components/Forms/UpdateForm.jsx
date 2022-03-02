@@ -5,12 +5,11 @@ import { updatePost } from '../../Services/posts';
 
 
 
-
 export function UpdateForm(props) {
   const { post, commentId } = props;
-  const [commenting, setCommenting]=useState(post);
+  const [commenting, setCommenting] = useState(post);
+
   let keys = Object.keys(post);
-  console.log(post, post[keys[0]], keys);
   let nav = useNavigate();
 
   const handleChange = (e) => {
@@ -38,16 +37,19 @@ export function UpdateForm(props) {
     }
   }
 
-  function CallKeys() {
+  function CallKeys({...props}) {
     return <>
     {keys.map((key,i) => {
-      return <>{ (key !== 'post_id' && key!=="id" && key!=="upvote" && key!=="comments" && key!=="user" && key !=='user_id' && key !=='created_at' && key !=='updated_at') && <textarea name={`${key}`} placeholder={key} value={commenting[key]} key={i} onChange={(e)=>{handleChange(e);}} style={{height:"10vh"}}></textarea>}</>
+      return (key !== 'post_id' && key !== "id" && key !== "upvote" && key !== "comments" && key !== "user" && key !== 'user_id' && key !== 'created_at' && key !== 'updated_at') &&
+        <textarea key={i} type="text" autoFocus name={`${key}`} 
+        placeholder={key} value={commenting[key]} onChange={(e) => { handleChange(e) }} style={{ height: "10vh" }} 
+          ></textarea>
     })}
       </>
   }
   return (
-    <form onSubmit={(e)=>handleSubmit(e)}>
-      <CallKeys></CallKeys>
+    <form onSubmit={(e)=>handleSubmit(e)} onChange={(e)=>{e.preventDefault()}}>
+      <CallKeys autoFocus></CallKeys>
       <button>Submit</button>
     </form>
   )
