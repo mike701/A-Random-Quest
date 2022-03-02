@@ -21,6 +21,7 @@ export default function Info(props) {
   const [postsToggle, setPostsToggle] = useState(false);
   const [following, setFollowing] = useState();
   const set=new Set()
+  const [sets, setSets] = useState(set);
 
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function Info(props) {
       }
     }
     fetchUserPosts();
-  }, [currentUser])
+  }, [currentUser,sets])
   
 
   return <div>
