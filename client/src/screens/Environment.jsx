@@ -23,7 +23,6 @@ export default function Environment() {
   // )
   function Avatar(props) {
     const { nodes, scene } = useGLTF("/scene.gltf");
-    console.log(nodes, scene)    
     // const { actions } = useAnimations(animations, group)
     useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
     return   <group  rotation={[0, 0, 0]} scale={[1, 1, 1]} position={props.position}>

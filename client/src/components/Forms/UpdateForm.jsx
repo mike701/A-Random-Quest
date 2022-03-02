@@ -24,7 +24,6 @@ export function UpdateForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (window.localStorage.getItem("authToken") != null) {
-      console.log(commenting)
       if (!props.postValue) {
         await updateComment(post.id, commentId, commenting)
       } else {

@@ -13,7 +13,6 @@ export default function Quests(props) {
   const handleDelete = async (e,id) => {
     e.preventDefault();
     const res = await deletePost(id);
-    console.log(res);
     setQuests(quests.filter((quest)=>quest.id===id))
   }
   let nav = useNavigate();
@@ -24,13 +23,10 @@ export default function Quests(props) {
     if (newFriend.id === your) {
       alert("You can't follow yourself")
     } else {
-      console.log(newFriend)
-      console.log(your);
       const handleSubmit = async () => {
         if (window.localStorage.getItem("authToken") != null) {
           const res = await addFriends(your,newFriend.id)
           // const res = await getUserFriends(newFriend.id)
-          console.log(res)
         } else {
           alert("You need to sign in!");
           nav("/login");
@@ -58,7 +54,6 @@ export default function Quests(props) {
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => { handleDelete(e, r.id) }}>Delete</button>}
           {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => {
             setUpdate((prev) => !prev);
-            console.log(update)
             setPostValue(r.id)
           }}>Update</button>}
           {update && Number(postValue)===Number(r.id) && <UpdateForm post={r} postValue={r.id}></UpdateForm>}

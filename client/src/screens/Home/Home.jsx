@@ -9,7 +9,6 @@ export default function Home(props) {
       "username": "Guest",
       "password": "Guesting"
     });
-    console.log(guest);
     window.location.reload(false);
   }
   return (

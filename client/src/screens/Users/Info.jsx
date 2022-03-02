@@ -4,12 +4,10 @@ import { useEffect } from 'react';
 import { getAllUsers, getOneUserFriends, getOneUserPosts } from '../../Services/users';
 
 export default function Info(props) {
-  console.log(props)
   const [users,setUsers]=useState();
   useEffect(() => {
     const fetchUsers = async() => {  
       const user = await getAllUsers();
-      console.log(user)
       setUsers(user);
     }
     fetchUsers();
@@ -21,9 +19,7 @@ export default function Info(props) {
   const [postsToggle, setPostsToggle] = useState(false);
   const [following, setFollowing] = useState();
   const set=new Set()
-  const [sets, setSets] = useState(set);
 
-  setSets(set);
 
   useEffect(() => {
     const fetchUserPosts = async () => {
@@ -32,15 +28,13 @@ export default function Info(props) {
         // const resp = await getOneUserPosts(currentUser.id);
         const resp = await getOneUserFriends(currentUser.id);
         // console.log("comments:",resp);
-        console.log(resp.friends)
         setPosts(res);
         setToggle(true);
         resp.friends?.map((follow) => {
-          sets.add(follow.user_id);
+          set.add(follow.user_id);
           return null;
         })
-        console.log([...sets][0])
-        setFollowing([...sets])
+        setFollowing([...set])
       }
     }
     fetchUserPosts();
