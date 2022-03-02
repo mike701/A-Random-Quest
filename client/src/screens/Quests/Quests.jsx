@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {UpdateForm} from '../../components/Forms/UpdateForm';
 import QuestCard from '../../components/QuestCard';
 import { deletePost } from '../../Services/posts';
-import { addFriends, updateFriends } from '../../Services/users';
+import { addFriends } from '../../Services/users';
 
 export default function Quests(props) {
   const { quests, users,setQuests,currentUser } = props;

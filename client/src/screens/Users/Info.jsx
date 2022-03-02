@@ -34,14 +34,15 @@ export default function Info(props) {
         setPosts(res);
         setToggle(true);
         resp.friends?.map((follow) => {
-          set.add(follow.user_id)
+          set.add(follow.user_id);
+          return null;
         })
         console.log([...set][0])
         setFollowing([...set])
       }
     }
     fetchUserPosts();
-  }, [currentUser])
+  }, [currentUser,set])
   
 
   return <div>

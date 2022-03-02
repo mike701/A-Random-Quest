@@ -40,7 +40,7 @@ export function UpdateForm(props) {
   function CallKeys({...props}) {
     return <>
     {keys.map((key,i) => {
-      return <div onChange={(e) => { handleChange(e); }} key={i}>{(key =="content") &&
+      return <div onChange={(e) => { handleChange(e); }} key={i}>{(key ==="content") &&
         <input autoFocus="autofocus" type="text" name={`${key}`} 
         placeholder={key} value={commenting[key]} onChange={(e) => { handleChange(e) }} style={{ height: "10vh" }} 
       ></input>}</div>
