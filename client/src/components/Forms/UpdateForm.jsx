@@ -40,16 +40,16 @@ export function UpdateForm(props) {
   function CallKeys({...props}) {
     return <>
     {keys.map((key,i) => {
-      return (key !== 'post_id' && key !== "id" && key !== "upvote" && key !== "comments" && key !== "user" && key !== 'user_id' && key !== 'created_at' && key !== 'updated_at') &&
-        <textarea key={i} type="text" autoFocus name={`${key}`} 
+      return <div onChange={(e) => { handleChange(e); }} key={i}>{(key =="content") &&
+        <input autoFocus="autofocus" type="text" name={`${key}`} 
         placeholder={key} value={commenting[key]} onChange={(e) => { handleChange(e) }} style={{ height: "10vh" }} 
-          ></textarea>
+      ></input>}</div>
     })}
       </>
   }
   return (
     <form onSubmit={(e)=>handleSubmit(e)} onChange={(e)=>{e.preventDefault()}}>
-      <CallKeys autoFocus></CallKeys>
+      <CallKeys></CallKeys>
       <button>Submit</button>
     </form>
   )
