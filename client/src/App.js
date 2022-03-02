@@ -57,7 +57,6 @@ function App() {
           </Suspense>
           </>
           } />
-          {/* <Route path="/environment" element={<h1>Hello</h1>}/> */}
         </Routes>
       </Layout>
       <div>

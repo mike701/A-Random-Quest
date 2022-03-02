@@ -38,10 +38,10 @@ export default function Quests(props) {
   return (
     <div >
       <h1>Quests</h1>
-      {!quests && <h1>Loading</h1>}
+      {!quests && <><h1>Loading</h1> <i className="fa fa-spinner fa-spin"
+        ></i></>}
       {quests && users && quests.map((r) => {
         return <QuestCard key={r.id}>
-        
           <h2>Title:{r.title}</h2>
           <h2>Category:{r.category}</h2>
           <p>Content:{r.content}</p>
