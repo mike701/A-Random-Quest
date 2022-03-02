@@ -52,6 +52,7 @@ _The **A-Random-Quest** MVP allows a user to post quests for others, asnwer ques
 | React Router | _Handles changing between screens._                                    |
 |     Ruby     | _Back-end language for handling server side logic._                    |
 |    Rails     | _Backend framework for server side routing and database manipulation._ |
+|   ThreeJs    | _3D Environment library for front-end._                                |
 |  Tailwinds   | _Styling library for front-end._                                       |
 
 <br>
@@ -115,19 +116,19 @@ src
 | --------------------------- | :------: | :------------: | :-----------: | :---------: |
 | BackEnd-(USER,POST,COMMENT) |    H     |     3 hrs      |     5hrs      |    7hrs     |
 | BackEnd-Deploy              |    H     |     1 hrs      |     1hrs      |    1hrs     |
-| Create CRUD Front-END       |    H     |     3 hrs      |    2+ hrs     |    2+hrs    |
-| Screens                     |    L     |     3 hrs      |      hrs      |     hrs     |
-| Component Hierarchy         |    M     |     2 hrs      |      hrs      |     hrs     |
-| Layout                      |    L     |     2 hrs      |      hrs      |     TBD     |
-| USER Components             |    H     |     4 hrs      |      hrs      |     hrs     |
-| Post Components             |    H     |     4 hrs      |      hrs      |     hrs     |
-| Comments Components         |    H     |     4 hrs      |      hrs      |     hrs     |
-| Card/Footer                 |    M     |     2 hrs      |      hrs      |     hrs     |
-| Styling                     |    L     |     3 hrs      |      hrs      |     TBD     |
-| Add Contact Form            |    L     |     3 hrs      |      hrs      |     TBD     |
-| Favorites                   |    M     |     5 hrs      |      hrs      |     TBD     |
-| Debugging(prop-drilling)    |    M     |     3 hrs      |      hrs      |     TBD     |
-| TOTAL                       |          |     41 hrs     |      hrs      |     TBD     |
+| Create CRUD Front-END       |    H     |     3 hrs      |     2hrs      |    2hrs     |
+| Screens                     |    L     |     3 hrs      |     3hrs      |    6hrs     |
+| Component Hierarchy         |    M     |     2 hrs      |     2hrs      |    2hrs     |
+| Layout                      |    L     |     2 hrs      |     1hrs      |     1hr     |
+| USER Components             |    H     |     4 hrs      |     4hrs      |    4hrs     |
+| Post Components             |    H     |     4 hrs      |     2hrs      |    1hrs     |
+| Comments Components         |    H     |     4 hrs      |     4hrs      |    4hrs     |
+| Card/Footer                 |    M     |     2 hrs      |     2hrs      |    2hrs     |
+| Styling                     |    L     |     3 hrs      |     3hrs      |    3hrs     |
+| Add Contact Form            |    L     |     3 hrs      |     3hrs      |    3hrs     |
+| Favorites                   |    M     |     5 hrs      |     5hrs      |    5hrs     |
+| Debugging(prop-drilling)    |    M     |     3 hrs      |     3hrs      |    3hrs     |
+| TOTAL                       |          |     41 hrs     |     41hrs     |    41hrs    |
 
 <br>
 
@@ -150,3 +151,12 @@ src
 ## Code Showcase
 
 ## Code Issues & Resolutions
+
+I had to make sure that only unique follows were shown oin your follows list due to issues with the ability to follow the same user many times. This will be fixed but a quick patch I found was to use a Set.
+
+```
+resp.friends?.map((follow) => {
+          set.add(follow.user_id);
+          return null;
+        })
+```
