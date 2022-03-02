@@ -23,6 +23,7 @@ export default function Info(props) {
   const set=new Set()
   const [sets, setSets] = useState(set);
 
+  setSets(set);
 
   useEffect(() => {
     const fetchUserPosts = async () => {
