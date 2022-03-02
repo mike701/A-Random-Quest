@@ -1,6 +1,6 @@
-import React, { useLayoutEffect, useRef } from 'react'
-import { Canvas, useLoader,useFrame } from '@react-three/fiber'
-import { PointerLockControls, Sky, Text, useAnimations, useFBX, useGLTF, useNormalTexture} from "@react-three/drei";
+import React, { useLayoutEffect } from 'react'
+import { Canvas, useLoader } from '@react-three/fiber'
+import { PointerLockControls, Sky, Text, useFBX, useGLTF, useNormalTexture} from "@react-three/drei";
 import { usePlane } from "@react-three/cannon";
 import { Physics } from '@react-three/cannon';
 import * as THREE from "three";
@@ -26,12 +26,9 @@ export default function Environment() {
     console.log(nodes, scene)    
     // const { actions } = useAnimations(animations, group)
     useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
-    return   <group ref={group} rotation={[0, 0, 0]} scale={[1, 1, 1]} position={props.position}>
+    return   <group  rotation={[0, 0, 0]} scale={[1, 1, 1]} position={props.position}>
       <primitive object={scene} />
-      <primitive 
-            object={model.scene}
-            scale={[1,1,1]}
-        />
+
     </group>
   }
   function Plane(props) {
