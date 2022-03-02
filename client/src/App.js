@@ -10,6 +10,7 @@ import Info from './screens/Users/Info';
 import Signup from './screens/Users/Signup';
 import Environment from './screens/Environment';
 import { Suspense } from 'react'
+import Footer from './components/Footer';
 
 const loginData = {
   username: "",
@@ -27,7 +28,6 @@ function App() {
       const logIn = async () => {
         const logged = await loginUser(input);
         setCurrentUser(logged);
-        console.log(logged);
       }
       logIn()
     }
@@ -62,7 +62,7 @@ function App() {
       </Layout>
       <div>
       </div>
-      <footer style={{position:"absolute",bottom:"0", height:"10vh",width:"100vw", backgroundColor:"black", color:"white"}}>Footer</footer>
+      <Footer></Footer>
     </div>
   );
 }
