@@ -1,6 +1,6 @@
-import React, { useLayoutEffect } from 'react'
-import { Canvas, useLoader } from '@react-three/fiber'
-import { PointerLockControls, Sky, Text, useGLTF, useNormalTexture} from "@react-three/drei";
+import React, { useLayoutEffect, useRef } from 'react'
+import { Canvas, useLoader,useFrame } from '@react-three/fiber'
+import { PointerLockControls, Sky, Text, useAnimations, useFBX, useGLTF, useNormalTexture} from "@react-three/drei";
 import { usePlane } from "@react-three/cannon";
 import { Physics } from '@react-three/cannon';
 import * as THREE from "three";
@@ -23,10 +23,15 @@ export default function Environment() {
   // )
   function Avatar(props) {
     const { nodes, scene } = useGLTF("/scene.gltf");
-    console.log(nodes,scene)
+    console.log(nodes, scene)    
+    // const { actions } = useAnimations(animations, group)
     useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
-    return   <group rotation={[0, 0, 0]} scale={[10, 10, 10]} position={props.position}>
-      <primitive object={scene}/>
+    return   <group ref={group} rotation={[0, 0, 0]} scale={[1, 1, 1]} position={props.position}>
+      <primitive object={scene} />
+      <primitive 
+            object={model.scene}
+            scale={[1,1,1]}
+        />
     </group>
   }
   function Plane(props) {
@@ -75,3 +80,4 @@ export default function Environment() {
 }
 
 useGLTF.preload("/scene.gltf")
+useFBX.preload("/HipHopDancing(1).fbx")
