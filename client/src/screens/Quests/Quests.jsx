@@ -12,7 +12,7 @@ export default function Quests(props) {
   const[postValue,setPostValue]=useState(null);
   const handleDelete = async (e,id) => {
     e.preventDefault();
-    const res = await deletePost(id);
+     await deletePost(id);
     setQuests(quests.filter((quest)=>quest.id===id))
   }
   let nav = useNavigate();
@@ -25,7 +25,7 @@ export default function Quests(props) {
     } else {
       const handleSubmit = async () => {
         if (window.localStorage.getItem("authToken") != null) {
-          const res = await addFriends(your,newFriend.id)
+          await addFriends(your,newFriend.id)
           // const res = await getUserFriends(newFriend.id)
         } else {
           alert("You need to sign in!");
