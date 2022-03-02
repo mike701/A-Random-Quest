@@ -62,7 +62,6 @@ export default function QuestDetails(props) {
             setCommentValue(r=comment.id)
           }}>Update</button>}
           {update && commentValue===comment.id && <UpdateForm post={comment} commentId={comment.id} currentUser={currentUser}></UpdateForm>}
-          {/* </CommentCard> */}
             </div>
           })}
           

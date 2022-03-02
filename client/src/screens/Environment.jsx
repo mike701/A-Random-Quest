@@ -12,20 +12,10 @@ export default function Environment() {
   const woodMap = useLoader(THREE.TextureLoader, '/pexels-fwstudio-129731.jpg');
   const boardMap = useLoader(THREE.TextureLoader, '/pexels-cottonbro-3826435.jpg');
 
-  // const [normalMap] = useNormalTexture(
-  //   0, // index of the normal texture - https://github.com/emmelleppi/normal-maps/blob/master/normals.json
-  //   // second argument is texture attributes
-  //   {
-  //     offset: [0, 0],
-  //     repeat: [1.5, 1.5],
-  //     anisotropy: 8
-  //   }
-  // )
   function Avatar(props) {
     const { nodes, scene } = useGLTF("/scene.gltf");
-    // const { actions } = useAnimations(animations, group)
     useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
-    return   <group  rotation={[0, 0, 0]} scale={[1, 1, 1]} position={props.position}>
+    return   <group  rotation={[0, 0, 0]} scale={[10, 10, 10]} position={props.position}>
       <primitive object={scene} />
 
     </group>
@@ -51,8 +41,8 @@ export default function Environment() {
         <planeBufferGeometry args={props.args} attach='geometry' />
         <meshStandardMaterial attach='material'  map={boardMap} />
         <Text fontSize={1.25} lineHeight={1} letterSpacing={0.05} color={'#EC2D2D'} position={[0, 0, 0.5]} maxWidth={20} textAlign={"center"}>
-          Hello, if this is not your first foray into the A-Random-Quest three-D environment Welcome back!
-          Otherwise welcome here are some instructions. Use WASD for direction controls and space to hop. 
+          Hello, if this is not your first foray into the A-Random-Quest 3-D environment welcome back!
+          Otherwise Welcome! Here are some instructions. Use WASD for direction controls and space to hop. 
           If you have clicked the screen and want to leave press esc key. There is a pointer lock that follows your cursor
           so you can rotate your view.
         </Text>

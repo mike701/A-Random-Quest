@@ -26,7 +26,6 @@ export default function Quests(props) {
       const handleSubmit = async () => {
         if (window.localStorage.getItem("authToken") != null) {
           await addFriends(your,newFriend.id)
-          // const res = await getUserFriends(newFriend.id)
         } else {
           alert("You need to sign in!");
           nav("/login");

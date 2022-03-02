@@ -3,8 +3,8 @@ import React, { useEffect,useRef, useState } from 'react'
 import { useThree, useFrame } from "@react-three/fiber"
 import * as THREE from "three"
 
-
-const SPEED = 15
+// Inspired by https://codesandbox.io/s/vkgi6?file=/src/App.js A minecraft clone in ThreeJsx
+const SPEED = 10
 const keys={KeyW: "forward", KeyS: "backward", KeyA:"left", KeyD:"right", Space:"jump"}
 const moveFieldByKey=(key)=>keys[key]
 const direction = new THREE.Vector3()
@@ -29,11 +29,11 @@ function PlayerControls() {
 }
 
 export function UserControl(props) {
-  const [ref, api] = useSphere(() => ({ mass: 1, type: "Dynamic", position: [0, 10, 0] }))
+  const [ref, api] = useSphere(() => ({ mass: 1, type: "Dynamic", position: [0, 10, 0],...props }))
   const { forward, backward, right, left, jump } = PlayerControls()
   const { camera } = useThree()
   const velocity = useRef([0, 0, 0])
-  useEffect(()=>api.velocity.subscribe((v)=>(velocity.current=v)),)
+  useEffect(()=>api.velocity.subscribe((v)=>(velocity.current=v)),[])
   useFrame((state) => {
     ref.current.getWorldPosition(camera.position)
     frontVector.set(0, 0, Number(backward) - Number(forward))
