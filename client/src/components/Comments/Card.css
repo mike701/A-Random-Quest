@@ -1,3 +1,7 @@
 .commentCard {
   background-color: #9198e5;
+  border-radius: 20px;
+  width: 75vw;
+  position: relative;
+  left: 15vw;
 }

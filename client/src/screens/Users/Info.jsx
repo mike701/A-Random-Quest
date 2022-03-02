@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { getAllUsers, getOneUserFriends, getOneUserPosts } from '../../Services/users';
-
+import '../../components/Comments/Card.css'
 export default function Info(props) {
   const [users,setUsers]=useState();
   useEffect(() => {
@@ -25,9 +25,7 @@ export default function Info(props) {
     const fetchUserPosts = async () => {
       if (currentUser?.id) {
         const res = await getOneUserPosts(currentUser.id);
-        // const resp = await getOneUserPosts(currentUser.id);
         const resp = await getOneUserFriends(currentUser.id);
-        // console.log("comments:",resp);
         setPosts(res);
         setToggle(true);
         resp.friends?.map((follow) => {
@@ -49,9 +47,9 @@ export default function Info(props) {
         <button onClick={(e) => {
           e.preventDefault();
           setPostsToggle((prevToggle) => !prevToggle);
-        }}>Click to see Posts</button>
+        }}>Click to Toggle Posts</button>
         {postsToggle && posts.map((post) => {
-          return <div key={post.id}>
+          return <div key={post.id} className="commentCard">
             <h1>{post.title}</h1>
             <p>{post.content}</p>
             <p>{post.category}</p>

@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import FormCreateComment from '../../components/Forms/FormCreateComment';
 import { getAllComments } from '../../Services/comments';
 import {UpdateForm} from '../../components/Forms/UpdateForm';
+import '../../components/Comments/Card.css'
 
 
 export default function QuestDetails(props) {
@@ -52,7 +53,7 @@ export default function QuestDetails(props) {
          </div>
           {toggleComment && <FormCreateComment currrentUser={currentUser} post_id={r.id}></FormCreateComment>}
           {comments && toggleComments && comments.map((comment) => {
-            return <div key={comment.id}>
+            return <div key={comment.id} className="commentCard">
               <h3>comment:{comment.content}</h3>
               <p>commentor:{comment.user.username}</p>
               {currentUser && Number(currentUser.id) === Number(r.user_id) && <button onClick={(e) => {
@@ -61,8 +62,10 @@ export default function QuestDetails(props) {
             setCommentValue(r=comment.id)
           }}>Update</button>}
           {update && commentValue===comment.id && <UpdateForm post={comment} commentId={comment.id} currentUser={currentUser}></UpdateForm>}
+          {/* </CommentCard> */}
             </div>
           })}
+          
           </div>
       })}
     </div>
