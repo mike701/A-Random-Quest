@@ -42,7 +42,7 @@ export default function Info(props) {
       }
     }
     fetchUserPosts();
-  }, [currentUser,set])
+  }, [currentUser])
   
 
   return <div>
